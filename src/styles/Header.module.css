@@ -1,0 +1,275 @@
+/* Header Component */
+.header {
+  margin: 0;
+  padding: 8px;
+  background-color: #111111;
+}
+
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topnav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.topnav ul li {
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 16px;
+}
+
+.topnav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.topnav ul li a:hover {
+  color: #fdc57b;
+}
+
+.toggle {
+  background-color: #111111;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.icon {
+  color: white;
+  font-size: 20px;
+}
+
+.icon:hover {
+  color: #fdc57b;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+  .topnav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #111111;
+    width: 100%;
+    border-radius: 0;
+    z-index: 1000;
+  }
+
+  .topnav.responsive ul {
+    display: flex;
+  }
+
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .topnav.responsive ul li {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .toggle {
+    display: none;
+  }
+
+  .topnav ul {
+    display: flex;
+  }
+}
+
+/* HOME */
+
+.container {
+  background-image: url("https://i.pinimg.com/736x/4f/d6/22/4fd622433a21e15d7c12d7e2390f87ad.jpg");
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+.h1 {
+  color: white;
+  text-align: center;
+  font-size: 50px;
+}
+
+/* CONTACT FORM COMPONENT */
+.contactContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("https://i.pinimg.com/736x/4f/d6/22/4fd622433a21e15d7c12d7e2390f87ad.jpg");
+  transparency: 2px;
+}
+
+.contactForm {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 350px;
+  border-radius: 25px;
+  border: 0.5px solid #394a51;
+  padding: 60px 60px 60px 60px;
+  border-radius: 25px;
+  border: 0.5px solid gray;
+  background-image: url("https://static5.depositphotos.com/1034123/436/i/450/depositphotos_4364101-stock-photo-gray-wall-texture.jpg");
+}
+
+.inputField {
+  padding: 10px 30px 10px 30px;
+  border-radius: 25px;
+  border: 0.5px solid;
+  margin: 4px;
+}
+
+.inputLabel {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  margin: 4px;
+}
+
+.formTitle {
+  color: black;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.submitButton {
+  padding: 10px 30px;
+  border-radius: 25px;
+  border: 2px solid black;
+  margin: 10px 0px;
+  background-color: black;
+  color: white;
+  margin-top: 8px;
+}
+
+.submitButton:hover {
+  padding: 10px 30px;
+  border-radius: 25px;
+  border: 2px solid #fdc57b;
+  margin: 10px 0px;
+  background-color: #fdc57b;
+  color: white;
+  margin-top: 8px;
+}
+
+/* FORM COMPONENT */
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form {
+  background-color: #394a51;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 350px;
+  border-radius: 25px;
+  border: 0.5px solid #394a51;
+  padding-top: 18px;
+}
+
+.form div {
+  margin: 20px;
+}
+
+.title {
+}
+
+.input {
+  padding: 10px;
+  border-radius: 25px;
+  border: 0.5px solid #394a51;
+  margin: 8px 8px 4px 8px;
+}
+
+.button {
+  padding: 10px 30px;
+  border-radius: 25px;
+  border: 2px solid #fdc57b;
+  margin: 0 0 0 30px;
+  background-color: #fdc57b;
+}
+
+/* POST DETAILS */
+
+.postHeading {
+  color: white;
+  text-align: center;
+  font-size: 45px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.postContainer {
+  color: black;
+  padding-top: 150px;
+}
+
+.postDetails {
+  color: white;
+  opacity: 0.8;
+  margin: 15px;
+  border-radius: 5px;
+  padding: 10px 40px;
+  background-color: rgba(57, 74, 81, 0.2);
+
+  /* border-radius: 1px;
+    border: 0.5px solid white;
+    text-align: center; */
+}
+
+/*  ABOUT SECTION */
+.aboutContainer {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  background-image: url("https://i.pinimg.com/736x/4f/d6/22/4fd622433a21e15d7c12d7e2390f87ad.jpg");
+}
+
+.aboutHeading {
+  color: white;
+  text-align: center;
+  font-size: 45px;
+}
+
+.postIdContainer {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-image: url("https://st2.depositphotos.com/4196725/6962/i/450/depositphotos_69628813-stock-photo-white-stone-texture.jpg");
+}
