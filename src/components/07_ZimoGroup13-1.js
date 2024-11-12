@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 function ZimoGroup7() {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
-    <div className="h-dvh flex items-center justify-center relative">
+    //ZIMO MEET 1
+    <div
+      className="h-dvh flex items-center justify-center relative"
+      data-aos="zoom-in"
+      data-aos-duration="1500"
+    >
       <div className="absolute mx-2">
         <Image
           className="m-2 opacity-20 blur-sm"
@@ -49,8 +59,6 @@ function ZimoGroup7() {
         <div className=" lg:col-span-1 col-span-1 flex flex-col items-center justify-center">
           <div>
             <Image
-             onMouseEnter={() => setIsHovered(true)}
-             onMouseLeave={() => setIsHovered(false)}
               className="m-2"
               src="/07_ZimoGroup13-1/meetlogo.png"
               width={300}

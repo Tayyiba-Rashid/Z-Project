@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect } from "react";
 import Image from "next/image";
-
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 function ZimoGroup8() {
-  
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
-    
+    //ZIMO MEET 2
     <div className="h-dvh flex items-center justify-center relative bg-zinc-800">
       <div className="absolute mx-2 ">
         <Image
@@ -36,7 +39,9 @@ function ZimoGroup8() {
             <div className="text-sm text-white">RECORDINGS</div>
             <div className="text-sm text-white">FREE FOR EVERYONE</div>
           </div>
-          <div className=" flex items-center justify-center mx-16">
+          <div className=" flex items-center justify-center mx-16"
+           data-aos="flip-down" 
+           data-aos-duration="1500">
             <Image
               className="m-2"
               src="/08_ZimoGroup13-2/text.png"
@@ -49,9 +54,11 @@ function ZimoGroup8() {
             END-TO-END ENCRYPTION
           </div>
         </div>
-        <div className=" lg:col-span-1 col-span-1 flex flex-col items-center justify-center">
+        <div className=" lg:col-span-1 col-span-1 flex flex-col items-center justify-center ">
           <div>
             <Image
+            data-aos="flip-down" 
+           data-aos-duration="1500"
               className="m-2"
               src="/08_ZimoGroup13-2/meetlogo.png"
               width={300}

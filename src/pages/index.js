@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import 'aos/dist/aos.css';
 import ZimoGroup1 from "@/components/01_ZimoGroup1";
 import ZimoGroup2 from "@/components/02_ZimoGroup2";
 import ZimoGroup3 from "@/components/03_ZimoGroup3";
@@ -29,13 +30,19 @@ import ZimoGroup27 from "@/components/27-ZimoGroup19";
 import ZimoGroup30 from "@/components/30_ZimoGroup20";
 
 function index() {
+  const zimoGroup2Ref = useRef(null); // Create a reference for ZimoGroup2
+
   return (
     <>
-      <div className="overflow-hidden">   
-        
-       
-        <ZimoGroup1 />
-        <ZimoGroup2 />
+      <div className="overflow-hidden">
+        <ZimoGroup1 scrollToZimoGroup2={zimoGroup2Ref} />
+        <div
+          ref={zimoGroup2Ref}
+          className="bg-black grid lg:grid-cols-5 md:grid-cols-1 sm:grid-cols-1 md:gap-4 h-dvh items-center justify-center sm:flex sm:flex-col sm:justify-center lg:flex-row"
+        >
+          <ZimoGroup2 />
+        </div>
+
         <ZimoGroup3 />
         <ZimoGroup4 />
         <ZimoGroup5 />
@@ -60,8 +67,8 @@ function index() {
         <ZimoGroup24 />
         <ZimoGroup25 />
         <ZimoGroup26 />
-        <ZimoGroup27 /> 
-        <ZimoGroup30 />     
+        <ZimoGroup27 />
+        <ZimoGroup30 />
       </div>
     </>
   );

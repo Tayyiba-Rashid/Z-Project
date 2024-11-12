@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import Image from "next/image";
 
 function ZimoGroup27() {
   const [isOpen, setIsOpen] = useState(false);
   const [isTermopen, setIstermopen] = useState(false);
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
     <div className="bg-zinc-300 h-dvh grid grid-row-12">
       <div className=" row-span-11 flex justify-center items-center px-6">
         <Image
+          data-aos="flip-down"
+          data-aos-duration="1500"
           src="/27-ZimoGroup19/Path 27237.png"
-          width={300}
-          height={300}
-          alt="background image"
+          width={200}
+          height={200}
+          alt="thank you"
         />
       </div>
       <div className=" row-span-1 flex lg:justify-between items-center justify-center flex-col lg:flex-row px-6">
@@ -25,22 +34,23 @@ function ZimoGroup27() {
         </div>
         <div className=" flex flex-row font-light text-sm">
           <div>
-            <button className="px-4 py-2 text-black hover:text-white font-light text-sm"
-            onClick={() => setIstermopen(true)}>
+            <button
+              className="px-4 py-2 text-black hover:text-white font-light text-sm"
+              onClick={() => setIstermopen(true)}
+            >
               TERMS OF SERVICE
             </button>
             {isTermopen && <TermsModal onClose={() => setIstermopen(false)} />}
           </div>
           <div className="px-4 py-2 text-black ">|</div>
-          <div
-            
-          >
-            <button className="px-4 py-2 text-black hover:text-white font-light text-sm"
-            onClick={() => setIsOpen(true)}>
-            PRIVACY POLICY
+          <div>
+            <button
+              className="px-4 py-2 text-black hover:text-white font-light text-sm"
+              onClick={() => setIsOpen(true)}
+            >
+              PRIVACY POLICY
             </button>
-           {isOpen && <Modal onClose={() => setIsOpen(false)} />}
-
+            {isOpen && <Modal onClose={() => setIsOpen(false)} />}
           </div>
         </div>
       </div>
@@ -49,17 +59,6 @@ function ZimoGroup27() {
 }
 
 export default ZimoGroup27;
-
-
-
-
-
-
-
-
-
-
-
 
 function Modal({ onClose }) {
   return (
@@ -86,10 +85,9 @@ function Modal({ onClose }) {
         </button>
       </div>
       <div class="lg:grid lg:grid-cols-12 lg:grid-rows-12 h-full lg:h-dvh bg-black flex flex-col">
-        
         <div className="  lg:col-span-12 lg:row-span-2 flex lg:flex-row flex-col  p-4 justify-between items-center  ">
           <div className="flex justify-start ">
-          <Image
+            <Image
               src="/29_ZimoGroup19.2/cookiespolicy.png"
               width={200}
               height={200}
@@ -97,19 +95,19 @@ function Modal({ onClose }) {
             />
           </div>
           <div className="flex flex-col justify-between ">
-          <div className="pt-4">
-            <Image
-              src="/28_ZimoGroup19.1/Group 3005.png"
-              width={90}
-              height={90}
-              alt="zimo"
-            />
-          </div>
-          <div className="text-white">PRIVACY POLICY</div>
+            <div className="pt-4">
+              <Image
+                src="/28_ZimoGroup19.1/Group 3005.png"
+                width={90}
+                height={90}
+                alt="zimo"
+              />
+            </div>
+            <div className="text-white">PRIVACY POLICY</div>
           </div>
           <div></div>
         </div>
-        <div class=" lg:col-span-3 lg:row-span-9 flex lg:justify-end items-center justify-center">
+        <div className=" lg:col-span-3 lg:row-span-9 flex lg:justify-end items-center justify-center">
           <Image
             src="/28_ZimoGroup19.1/Group 4553.png"
             width={200}
@@ -117,7 +115,7 @@ function Modal({ onClose }) {
             alt="zimo group"
           />
         </div>
-        <div class=" lg:col-span-4 lg:row-span-9  flex lg:justify-end items-center justify-center lg:p-0 lg:pl-6 p-6">
+        <div className=" lg:col-span-4 lg:row-span-9  flex lg:justify-end items-center justify-center lg:p-0 lg:pl-6 p-6">
           <Image
             src="/29_ZimoGroup19.2/zimoPrivacy.png"
             width={400}
@@ -125,7 +123,7 @@ function Modal({ onClose }) {
             alt="zimo privacy policy"
           />
         </div>
-        <div class=" lg:col-span-1 lg:row-span-9 lg:flex lg:justify-center lg:items-center hidden">
+        <div className=" lg:col-span-1 lg:row-span-9 lg:flex lg:justify-center lg:items-center hidden">
           <Image
             src="/28_ZimoGroup19.1/Line 99.png"
             width={0.7}
@@ -133,7 +131,7 @@ function Modal({ onClose }) {
             alt="section line"
           />
         </div>
-        <div class=" lg:col-span-4 lg:row-span-9 flex lg:justify-start items-center justify-center lg:p-0 lg:pr-6 p-6">
+        <div className=" lg:col-span-4 lg:row-span-9 flex lg:justify-start items-center justify-center lg:p-0 lg:pr-6 p-6">
           <Image
             src="/29_ZimoGroup19.2/zemoprivacy2.png"
             width={400}
@@ -141,7 +139,7 @@ function Modal({ onClose }) {
             alt="zimo privay policy"
           />
         </div>
-        <div class=" col-span-12 row-span-1 flex justify-end items-center p-6">
+        <div className=" col-span-12 row-span-1 flex justify-end items-center p-6">
           <Image
             src="/28_ZimoGroup19.1/date.png"
             width={100}
@@ -154,8 +152,7 @@ function Modal({ onClose }) {
   );
 }
 
-
-//TERMS AND CONDITIONS  
+//TERMS AND CONDITIONS
 function TermsModal({ onClose }) {
   return (
     <div className="bg-black h-full fixed inset-0 flex flex-col z-50 overflow-auto">
@@ -224,7 +221,7 @@ function TermsModal({ onClose }) {
             alt="zimo term and services"
           />
         </div>
-        <div class=" col-span-12 row-span-1 flex justify-end items-center p-6">
+        <div className=" col-span-12 row-span-1 flex justify-end items-center p-6">
           <Image
             src="/28_ZimoGroup19.1/date.png"
             width={100}
