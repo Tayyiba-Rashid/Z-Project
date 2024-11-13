@@ -11,6 +11,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'gold': '#BE9F56',
+        'grey': '#B2B2B2',
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
