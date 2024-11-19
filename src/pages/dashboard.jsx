@@ -1,11 +1,11 @@
 import Charts from '@/components/charts'
-import SideBar from '@/components/sideBar'
+import Sidebar from '@/components/sidebar'
 import React from 'react'
 
 function Dashboard() {
   return (
     <>
-    <SideBar />
+    <Sidebar />
      <Charts />
      </>
   )
