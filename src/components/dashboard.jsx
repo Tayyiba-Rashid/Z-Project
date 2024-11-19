@@ -5,9 +5,9 @@ import React from 'react'
 function Dashboard() {
   return (
     <>
-    <Sidebar />
-     <Charts />
-     </>
+      <Sidebar />
+      <Charts />
+    </>
   )
 }
 
