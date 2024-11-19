@@ -1,12 +1,12 @@
+import Charts from '@/components/charts'
+import React from 'react'
 
-import Dashboard from "../components/dashboard";
-
-export default function Home() {
+function index() {
   return (
     <>
-      <div>   
-        <Dashboard />
-      </div>
-    </>
-  );
+   
+  </>
+  )
 }
+
+export default index
