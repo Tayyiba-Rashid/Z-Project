@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export default function Footer() {
+
+  const [ref1, inView1] = useInView({ threshold: 0.1 });
+
+  const controls1 = useAnimation();
+
+  useEffect(() => {
+    if (inView1) controls1.start("visible");
+  }, [inView1, controls1]);
+
+
+  
+
   return (
     <>
       <footer className="relative bg-blueGray-200 pt-8 pb-6">
@@ -30,7 +44,16 @@ export default function Footer() {
               <h5 className="text-lg mt-0 mb-2 text-blueGray-600">
                 Find us on any of these platforms, we respond 1-2 business days.
               </h5>
-              <div className="mt-6 lg:mb-0 mb-6">
+              <motion.div
+              ref={ref1}
+              animate={controls1}
+              initial="hidden"
+              variants={{
+                visible: { opacity: 1, rotateY: 0 }, 
+                hidden: { opacity: 0, rotateY: 180 },
+              }}
+              transition={{ duration: 1 }} 
+              className="mt-6 lg:mb-0 mb-6 ">
                 <button
                   className="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                   type="button"
@@ -55,7 +78,7 @@ export default function Footer() {
                 >
                   <i className="fab fa-github"></i>
                 </button>
-              </div>
+              </motion.div>
             </div>
             <div className="w-full lg:w-6/12 px-4">
               <div className="flex flex-wrap items-top mb-6">
