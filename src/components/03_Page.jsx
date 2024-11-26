@@ -33,7 +33,8 @@ const Page03 = () => {
       {/* Header */}
       <div className=" row-span-1 flex lg:flex-row flex-col lg:justify-between justify-center item-center lg:items-end px-4">
         <div className="flex justify-center lg:justify-start">
-          <Image src="/03_Page/OUR CATEGORIES.png" width={250} height={250} alt="Our Categories" />
+        
+         <span className="font-lato md:text-3xl text-lg font-medium tracking-[0.25em] mb-4 text-center md:text-start"> OUR CATEGORIES</span>
         </div>
         <div className="lg:flex w-24 justify-between ml-4  lg:justify-between hidden  ">
           <button
@@ -101,10 +102,10 @@ const Page03 = () => {
 
       {/* Footer */}
       <div className=" row-span-1 flex items-start justify-center px-4">
-        <Image src="/03_Page/Path 27317.png" width={800} height={800} alt="Path" />
+        <span className="font-lato md:text-3xl text-lg font-medium tracking-[0.20em] mb-4 text-center md:text-start"> ONE PLATFORM FOR ALL PREMIUM LISTENINGS</span>
       </div>
       <div className=" row-span-1 flex items-start justify-center px-4">
-        <Image src="/03_Page/UNLIMITED POTENTIAL.png" width={300} height={300} alt="Unlimited Potential" />
+      <span className="font-lato md:text-[1.5em] text-lg font-medium tracking-[0.20em] mb-4 text-center md:text-start"> UNLIMITED POTENTIAL</span>
       </div>
     </div>
   );
