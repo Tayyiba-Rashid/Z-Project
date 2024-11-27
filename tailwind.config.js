@@ -19,6 +19,9 @@ module.exports = {
       fontFamily: {
         lato: ["Lato", "sans-serif"], 
       },
+      screens: {
+        'xd': '1920px', // Custom screen size for 1920px and above
+      },
     },
   },
   plugins: [],

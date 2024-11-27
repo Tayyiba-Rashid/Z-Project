@@ -1,34 +1,34 @@
-import Page01 from "@/components/01_Page";
-import Page02 from "@/components/02_Page";
-import Page03 from "@/components/03_Page";
-import Page04 from "@/components/04_Page";
-import Page05 from "@/components/05_Page";
-import Page06 from "@/components/06_Page";
-import Page07 from "@/components/07_Page";
+import Hero from "@/components/01_Hero";
+import RealEstate from "@/components/02_RealEstate";
+import Categories from "@/components/03_Categories";
+import Tickets from "@/components/04_Tickets";
+import Personalise from "@/components/05_Personalise";
+import GlobalVision from "@/components/06_GlobalVision";
+import ZimoPartners from "@/components/07_ZimoPartners";
 import Page08 from "@/components/08_Page";
 import { useRef } from "react";
 
 export default function Home() {
 
-  const page02ref = useRef(null)
-  const page03ref = useRef(null)
+  const realEstateRef = useRef(null)
+  const CategoriesRef = useRef(null)
   return (
    <>
    
 
-   <Page01 scrollToPage02={page02ref}/>
+   <Hero scrollToRealEstate={realEstateRef}/>
    <div
-   ref={page02ref}>
-   <Page02 scrollToPage03={page03ref}/>
+   ref={realEstateRef}>
+   <RealEstate scrollToCategories={CategoriesRef}/>
    </div>
    <div
-   ref={page03ref}>
-   <Page03 />
+   ref={CategoriesRef}>
+   <Categories />
    </div>
-   <Page04 />
-   <Page05 />
-   <Page06 />
-   <Page07 />
+   <Tickets />
+   <Personalise />
+   <GlobalVision />
+   <ZimoPartners />
    <Page08 />
   
    

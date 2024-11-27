@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-const Page03 = () => {
+const Categories = () => {
   const images = [
     "/03_Page/Group 4771.png",
     "/03_Page/Group 4772.png",
@@ -29,20 +29,19 @@ const Page03 = () => {
   };
 
   return (
-    <div className="h-screen grid grid-rows-7">
+    <div className="h-screen grid grid-rows-7 ">
       {/* Header */}
-      <div className=" row-span-1 flex lg:flex-row flex-col lg:justify-between justify-center item-center lg:items-end px-4">
-        <div className="flex justify-center lg:justify-start">
-        
-         <span className="font-lato md:text-3xl text-lg font-medium tracking-[0.25em] mb-4 text-center md:text-start"> OUR CATEGORIES</span>
+      <div className=" row-span-1 flex lg:flex-row flex-col  lg:justify-between justify-center item-center px-16 ">
+        <div className="flex justify-center lg:justify-start items-center ">
+          <span className="font-lato md:text-[40px] text-[25px] tracking-[0.2em] text-center md:text-start "> OUR CATEGORIES</span>
         </div>
-        <div className="lg:flex w-24 justify-between ml-4  lg:justify-between hidden  ">
+        <div className="lg:flex w-32 justify-between ml-4  lg:justify-between hidden">
           <button
             onClick={handlePrev}
             disabled={startIndex === 0}
-            className={`p-2 ${startIndex === 0 ? "opacity-50 cursor-not-allowed" : ""}`}
+            className={`p-4 ${startIndex === 0 ? "opacity-50 cursor-not-allowed" : ""}`}
           >
-            <Image src="/03_Page/Group 3100.png" width={15} height={15} alt="Previous" />
+            <Image src="/03_Page/Group 3100.png" width={20} height={40} alt="Previous" />
           </button>
           <button
             onClick={handleNext}
@@ -50,13 +49,13 @@ const Page03 = () => {
             className={`p-2 ${startIndex + visibleImages >= images.length ? "opacity-50 cursor-not-allowed" : ""
               }`}
           >
-            <Image src="/03_Page/Group 3094.png" width={15} height={15} alt="Next" />
+            <Image src="/03_Page/Group 3094.png" width={20} height={40} alt="Next" />
           </button>
         </div>
       </div>
 
       {/* Carousel */}
-      <div className=" row-span-4 px-4 relative flex lg:justify-center items-center justify-evenly  lg:flex-row flex-col">
+      <div className="  row-span-4 px-4 relative flex lg:justify-center items-center justify-evenly  lg:flex-row flex-col">
         <div className="lg:hidden  flex justify-between w-full">
           <button
             onClick={handlePrev}
@@ -102,13 +101,13 @@ const Page03 = () => {
 
       {/* Footer */}
       <div className=" row-span-1 flex items-start justify-center px-4">
-        <span className="font-lato md:text-3xl text-lg font-medium tracking-[0.20em] mb-4 text-center md:text-start"> ONE PLATFORM FOR ALL PREMIUM LISTENINGS</span>
+        <span className="font-lato xl:text-[50px] md:text-[35px] text-[20px] tracking-widest mb-4 text-center "> ONE PLATFORM FOR ALL PREMIUM LISTENINGS</span>
       </div>
       <div className=" row-span-1 flex items-start justify-center px-4">
-      <span className="font-lato md:text-[1.5em] text-lg font-medium tracking-[0.20em] mb-4 text-center md:text-start"> UNLIMITED POTENTIAL</span>
+        <span className="font-lato xl:text-[40px]  md:text-[30px] text-[15px] tracking-[0.20em] mb-4 text-center md:text-start"> UNLIMITED POTENTIAL</span>
       </div>
     </div>
   );
 };
 
-export default Page03;
+export default Categories;
