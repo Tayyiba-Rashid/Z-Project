@@ -46,10 +46,10 @@ function Personalise() {
                     </div>
                     <div className='flex flex-col items-end h-full lg:px-8 md:px-12 sm:px-10 px-6 sm:pt-8  '>
                         <div className='flex flex-col lg:w-2/4 pt-16'>
-                            <span className='font-lato 3xl:text-[40px] 2xl:text-[32px] xl:text-[25px] lg:text-[19px] md:text-[33px] sm:text-[20px]  text-[20px] text-white lg:text-start text-center tracking-[0.15em] '>PERSONALISED FOR YOU</span>
-                            <span className='font-lato  3xl:text-[20px] 2xl:text-[15px] xl:text-[11px] lg:text-[8px] md:text-[15px] sm:text-[12px] text-[10px] lg:leading-loose sm:leading-8 2xl:tracking-[0.24em] lg:text-start text-center tracking-[0.2em]  text-white opacity-60 3xl:mt-6 xl:mt-0 lg:mt-4 mt-8 '>DELIVERING THOUSANDS OF PERSONALISED ALERTS EVERYDAY, OUR USERS CAN BE FIRST IN LINE WHEN THAT OPPORTUNITY OF A LIFETIME IS HERE.</span>
+                            <span className='font-lato 3xl:text-[40px] 2xl:text-[32px] xl:text-[30px] lg:text-[22px] md:text-[33px] sm:text-[20px]  text-[20px] text-white lg:text-start text-center 2xl:tracking-[0.15em] 3xl:tracking-[0.25em]'>PERSONALISED FOR YOU</span>
+                            <span className='font-lato  3xl:text-[19px] 2xl:text-[14px] xl:text-[11px] lg:text-[8px] md:text-[15px] sm:text-[12px] text-[10px] lg:leading-loose sm:leading-8 2xl:tracking-[0.24em] lg:text-start text-center tracking-[0.2em]  text-white opacity-60 3xl:mt-6 xl:mt-0 lg:mt-4 mt-8 '>DELIVERING THOUSANDS OF PERSONALISED ALERTS EVERYDAY, OUR USERS CAN BE FIRST IN LINE WHEN THAT OPPORTUNITY OF A LIFETIME IS HERE.</span>
                         </div>
-                        <div className='flex lg:items-center items-end h-full lg:pr-4 xl:pr-1 md:pr-0 sm:pr-2 3xl:pr-4'>
+                        <div className='flex lg:items-center items-end h-full lg:pr-4 md:pr-0 sm:pr-2 3xl:pr-2 2xl:pr-7 xl:pr-11'>
                             <span className='font-lato 3xl:text-[21px] 2xl:text-[16px] xl:text-[12px] lg:text-[9px] md:text-[16px] sm:text-[15px] text-[11px] tracking-[0.15em] text-white px-2'>CREATE USER ID</span>
                                 <Image
                                     className='hidden lg:hidden 3xl:block'

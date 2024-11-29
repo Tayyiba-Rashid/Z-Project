@@ -18,9 +18,9 @@ function RealEstate({ scrollToCategories }) {
       <div className=' row-span-8 grid lg:grid-cols-3 grid-cols-1 '>
         <div className='lg:col-span-2 lg:row-span-3 row-span-4  grid lg:grid-rows-2 lg:pl-8 '>
           <div className=' flex flex-col items-center justify-center lg:justify-start lg:items-start '>
-            <span className='tracking-[0.131em] font-lato 3xl:text-[41px] 2xl:text-[32.8px] xl:text-[22.98px] lg:text-[20.4px] text-[12px] text-center lg:text-start leading-none'>A REVOLUTIONARY PLATFORM</span>
+            <span className='tracking-[0.125em] pl-1 font-lato 3xl:text-[41px] 2xl:text-[32.8px] xl:text-[22.98px] lg:text-[20.4px] text-[12px] text-center lg:text-start leading-none'>A REVOLUTIONARY PLATFORM</span>
             <div className='3xl:tracking-[0.1em] tracking-widest font-lato 3xl:text-[70px] 2xl:text-[56px] xl:text-[39.2px] lg:text-[34.9px] text-[21px] text-center lg:text-start leading-none lg:py-6 py-3 '>ENTRIES - SELLER</div>
-            <div className='tracking-[0.125em] font-lato 3xl:text-[100px] 2xl:text-[80px] xl:text-[56px] lg:text-[50px] text-[30px] text-center lg:text-start leading-none '>WORLDWIDE</div>
+            <div className='tracking-[0.135em] pl-1 font-lato 3xl:text-[100px] 2xl:text-[80px] xl:text-[56px] lg:text-[50px] text-[30px] text-center lg:text-start leading-none '>WORLDWIDE</div>
           </div>
           <div className='flex flex-col lg:items-start items-center justify-center  ' >
             <div className="font-lato  3xl:text-[40px] 2xl:text-[32px] xl:text-[25px] lg:text-[20px] md:text-[18px] text-[18px] tracking-[0.25em] mb-4 text-center lg:text-start">
@@ -54,7 +54,7 @@ function RealEstate({ scrollToCategories }) {
           <Image
             className='hidden lg:block xl:hidden'
             src='/02_Page/Group 4743.png'
-            width={250}
+            width={290}
             height={300} />
           <Image
             className='lg:hidden md:block hidden'
