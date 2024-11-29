@@ -4,23 +4,30 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
- 
+
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        'gold': '#BE9F56',
-        'grey': '#B2B2B2',
+        gold: "#BE9F56",
+        grey: "#B2B2B2",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        lato: ["Lato", "sans-serif"], 
+        lato: ["Lato", "sans-serif"],
       },
       screens: {
-        'xd': '1920px', // Custom screen size for 1920px and above
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
+        "3xl": "1920px",
+        "4xl": "2560px",
+        "5xl": "3000px",
       },
     },
   },

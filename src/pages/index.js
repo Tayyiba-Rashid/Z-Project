@@ -5,7 +5,7 @@ import Tickets from "@/components/04_Tickets";
 import Personalise from "@/components/05_Personalise";
 import GlobalVision from "@/components/06_GlobalVision";
 import ZimoPartners from "@/components/07_ZimoPartners";
-import Page08 from "@/components/08_Page";
+import Yacht from "@/components/08_Yacht";
 import { useRef } from "react";
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
    <Personalise />
    <GlobalVision />
    <ZimoPartners />
-   <Page08 />
+   <Yacht />
   
    
    </>
