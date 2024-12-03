@@ -18,7 +18,6 @@ function gallery() {
       }
     }
     )
-        // Clean up the listener when the component is unmounted
         return () => unsubscribe();
   }, [router])
 
@@ -26,8 +25,8 @@ function gallery() {
     try {
       await signOut(auth);
       setIsSignedIn(false);
+      alert('Are sure you want to sign out?');
       router.push("/signin")
-      alert('You have signed out.');
     } catch (error) {
       console.error("Error signing out: ", error);
       alert("There was an issue signing out. Please try again.");

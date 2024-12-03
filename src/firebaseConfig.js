@@ -2,8 +2,9 @@ import { initializeApp } from "firebase/app";
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithPopup,
   FacebookAuthProvider,
+  GithubAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -17,13 +18,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firebase Authentication and export
 const auth = getAuth(app);
 export default auth;
 
 //  google auth provider
 const googleProvider = new GoogleAuthProvider();
-//  GOOGLE FUNCTION
 export const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, googleProvider);
@@ -44,4 +43,15 @@ export const signInWithFacebook = async () => {
     throw new Error("Google Sign-in failed");
   }
 };
+
+const githubProvider = new GithubAuthProvider();
+export const signInWithGithub = async () => {
+  try {
+    const result = await signInWithPopup(auth, githubProvider);
+    return result.user;
+  } catch (error) {
+    console.log(error.message);
+    throw new Error("Github Sign-in failed");
+  }
+}
 

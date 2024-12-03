@@ -1,6 +1,6 @@
-import { FaGoogle, FaFacebook } from 'react-icons/fa';
-import {  createUserWithEmailAndPassword } from "firebase/auth";
-import auth, { signInWithFacebook, signInWithGoogle } from '../firebaseConfig'
+import { FaGoogle, FaFacebook, FaGithub } from 'react-icons/fa';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, signInWithFacebook, signInWithGoogle, signInWithGithub } from '../firebaseConfig'
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -11,33 +11,46 @@ const SignUp = () => {
     const router = useRouter();
 
     const handleSignUp = async (e) => {
-        e.preventDefault(); // Prevent form submission
+        e.preventDefault();
         try {
             await createUserWithEmailAndPassword(auth, email, password);
-            router.push("/signin"); // Redirect after sign-up
+            router.push("/signin");
         } catch (err) {
             setError(err.message);
         }
     };
+
+
     const handleGoogleAuth = async () => {
         try {
             await signInWithGoogle();
-            router.push("/gallery");
+            router.push("/gallery"); 
         } catch (err) {
-            console.log(err.message)
+            console.log(err.message);
         }
+    };
 
-    }
 
     const handleFacebookAuth = async () => {
         try {
             await signInWithFacebook();
-            router.push("/gallery");
+            router.push("/gallery");  
         } catch (err) {
             console.log(err.message)
         }
-
     }
+
+    const handleGithubAuth = async () => {
+        try {
+            await signInWithGithub();
+            router.push("/gallery");
+        } catch (err) {
+            console.error('GitHub Auth Error:', err.message);
+            setError("GitHub sign-in failed. Please try again.");
+        }
+    };
+    
+    
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-gray-50">
@@ -91,21 +104,26 @@ const SignUp = () => {
                         <FaGoogle className="mr-2" /> Sign up with Google
                     </button>
                     <button
-                    onClick={handleFacebookAuth}
-                     className="flex items-center justify-center w-full px-4 py-2 font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700">
+                        onClick={handleFacebookAuth}
+                        className="flex items-center justify-center w-full px-4 py-2 font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700">
                         <FaFacebook className="mr-2" /> Sign up with Facebook
                     </button>
-                    
+                    <button
+                        onClick={handleGithubAuth}
+                        className="flex items-center justify-center w-full px-4 py-2 font-semibold text-white bg-gray-800 rounded-md hover:bg-gray-900">
+                        <FaGithub className="mr-2" /> Sign up with GitHub
+                    </button>
+
                 </div>
                 <p className="text-sm text-center text-gray-500">
-            Already have an account?{' '}
-            <a
-                href="/signup"
-                className="font-medium text-zimo-theme hover:underline"
-            >
-                Sign In
-            </a>
-        </p>
+                    Already have an account?{' '}
+                    <a
+                        href="/signup"
+                        className="font-medium text-zimo-theme hover:underline"
+                    >
+                        Sign In
+                    </a>
+                </p>
             </div>
         </div>
     );

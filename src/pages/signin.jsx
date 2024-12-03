@@ -1,6 +1,6 @@
-import { FaGoogle, FaFacebook } from 'react-icons/fa';
-import auth, { signInWithFacebook, signInWithGoogle } from '@/firebaseConfig';
-import {  signInWithEmailAndPassword } from "firebase/auth";
+import { FaGoogle, FaFacebook, FaGithub } from 'react-icons/fa';
+import { auth, signInWithFacebook, signInWithGithub, signInWithGoogle } from '@/firebaseConfig';
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -12,34 +12,46 @@ const SignIn = () => {
     const [error, setError] = useState('');
     const router = useRouter();
 
-    const handleSignIn = async () => {
+    const handleSignIn = async (e) => {
+        e.preventDefault(); 
         try {
-            await signInWithEmailAndPassword(auth, email, password)
-            router.push("/gallery")
+            await signInWithEmailAndPassword(auth, email, password);
+            router.push("/gallery");  
         } catch (err) {
-            console.log(err.message)
+            console.log(err.message);
+            setError(err.message);  
         }
-    }
+    };
+    
 
     const handleGoogleAuth = async () => {
-        try{
+        try {
             await signInWithGoogle();
-            router.push("/gallery");
-        }catch(err){
-            console.log(err.message)
+            router.push("/gallery"); 
+        } catch (err) {
+            console.log(err.message);
         }
-
-    }
+    };
+    
 
     const handleFacebookAuth = async () => {
         try {
             await signInWithFacebook();
-            router.push("/signin");
+            router.push("/gallery");  
         } catch (err) {
             console.log(err.message)
         }
-
     }
+    
+    const handleGithubAuth = async () => {
+        try {
+            await signInWithGithub();  
+            router.push("/gallery");
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+    
 
 
 
@@ -77,7 +89,7 @@ const SignIn = () => {
                     </div>
                     {error && <p className="text-red-500 text-sm">{error}</p>}
                     <button
-                        type="button"
+                        type="submit"
                         onClick={handleSignIn}
                         className="bg-black w-full px-4 py-2 font-semibold text-white rounded-md bg-zimo-theme hover:bg-zimo-theme-dark"
                     >
@@ -99,6 +111,11 @@ const SignIn = () => {
                     onClick={handleFacebookAuth}
                     className="flex items-center justify-center w-full px-4 py-2 font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700">
                         <FaFacebook className="mr-2" /> Sign in with Facebook
+                    </button>
+                    <button
+                        onClick={handleGithubAuth}
+                        className="flex items-center justify-center w-full px-4 py-2 font-semibold text-white bg-gray-800 rounded-md hover:bg-gray-900">
+                        <FaGithub className="mr-2" /> Sign in with GitHub
                     </button>
                     
                 </div>
