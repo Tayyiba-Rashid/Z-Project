@@ -1,12 +1,11 @@
 import ImageUpload from '@/components/imageUpload'
-import React, { useEffect } from 'react'
-import { useState } from 'react';
+import  { React, useEffect, useState } from 'react'
 import { signOut } from "firebase/auth";
 import auth from '@/firebaseConfig';
 import Header from '@/components/header';
 import Router, { useRouter } from 'next/router';
 
-function gallery() {
+function Gallery() {
   const [isSignedIn, setIsSignedIn] = useState(true);
   const router = useRouter();
 
@@ -46,4 +45,4 @@ function gallery() {
     </div>  );
 }
 
-export default gallery
+export default Gallery

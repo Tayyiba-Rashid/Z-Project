@@ -1,4 +1,5 @@
 import Header from '@/components/header';
+import Image from 'next/image';
 import { useState } from 'react';
 import { FaUpload } from 'react-icons/fa';
 
@@ -45,7 +46,7 @@ const ImageUpload = () => {
         )}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
           {uploadedImages.map((image, index) => (
-            <img
+            <Image
               key={index}
               src={image}
               alt={`uploaded ${index}`}
