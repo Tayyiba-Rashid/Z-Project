@@ -1,4 +1,3 @@
-import Hero from "@/components/01_Hero";
 import RealEstate from "@/components/02_RealEstate";
 import Categories from "@/components/03_Categories";
 import Tickets from "@/components/04_Tickets";
@@ -7,6 +6,7 @@ import GlobalVision from "@/components/06_GlobalVision";
 import ZimoPartners from "@/components/07_ZimoPartners";
 import Yacht from "@/components/08_Yacht";
 import { useRef } from "react";
+import Hero from "@/components/01_Hero";
 
 export default function Home() {
 

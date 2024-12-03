@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion'
 
 export default function Hero({ scrollToRealEstate }) {
+
   const [time, setTime] = useState('');
   const [date, setDate] = useState('');
+  
 
   useEffect(() => {
     const timeNow = new Date();
@@ -27,11 +30,31 @@ export default function Hero({ scrollToRealEstate }) {
         .toUpperCase()
     );
   }, []);
+
+
   const handleClick = () => {
     scrollToRealEstate.current.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
+  };
+
+
+  const pageVariants = {
+    initial: {
+      opacity: 0,
+      x: -100,
+    },
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8 },
+    },
+    exit: {
+      opacity: 0,
+      x: 50,
+      transition: { duration: 0.8 },
+    },
   };
 
   return (
@@ -75,7 +98,7 @@ export default function Hero({ scrollToRealEstate }) {
                     className='3xl:block hidden'
                     src="/01_Page/Group 3385.png" width={185} height={50} />
                   <Image
-                     className='3xl:hidden 2xl:block hidden'
+                    className='3xl:hidden 2xl:block hidden'
                     src="/01_Page/Group 3385.png" width={148} height={40} />
                   <Image
                     className='2xl:hidden xl:block hidden'
@@ -223,13 +246,13 @@ export default function Hero({ scrollToRealEstate }) {
             <div className='hidden h-[60px] md:flex items-end justify-start '>
               <span className='flex items-center '>
                 <Image
-                className='lg:block hidden'
+                  className='lg:block hidden'
                   src="/01_Page/Path 7815.png"
                   width={22}
                   height={16}
                 />
                 <Image
-                className='lg:hidden md:block'
+                  className='lg:hidden md:block'
                   src="/01_Page/Path 7815.png"
                   width={16}
                   height={16}
@@ -239,56 +262,62 @@ export default function Hero({ scrollToRealEstate }) {
             </div>
           </div>
           {/* body */}
-          <div className="flex lg:justify-start justify-center items-center">
-            <div className='flex flex-col justify-center h-[190px]'>
+          <div className="flex lg:justify-start justify-center items-center ">
+            <motion.div className='flex flex-col justify-center h-[190px]'
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={pageVariants}
+            >
               <span className='text-white 2xl:text-[40px] xl:text-[25px]  lg:text-[23px] md:text-[21px] sm:text-[20px] text-[18px] tracking-widest md:text-start text-center'>DISCOVER</span>
               <span className='text-white 2xl:text-[60px] xl:text-[40px] lg:text-[35px] md:text-[30px] sm:text-[28px] text-[26px] tracking-widest md:text-start text-center' >A NEW WORLD</span>
               <span className='text-[#737373] 2xl:text-[20px] xl:text-[13px] lg:text-[10px] md:text-[12px] 
               sm:text-[11px] text-[10px] md:tracking-widest  2xl:pt-[26px] lg:pt-[20] pt-[10px] md:text-start text-center' >FOR THOSE WHO WISH FOR MORE...</span>
-            </div>
+            </motion.div>
           </div>
+
           <div className="flex flex-col justify-center items-center">
             <div className="text-[#737373] 2xl:text-[20px] xl:text-[13px] lg:text-[10px] md:text-[11px] sm:text-[11px] text-[10px] md:tracking-widest lg:pb-2">
               BRING THE WORLD CLOSER TOGETHER
             </div>
-            <div className="2xl:py-4 lg:py-1 md:py-3 sm:py-2 py-4" onClick={handleClick}>
+            <div className="2xl:py-4 lg:py-1 md:py-3 sm:py-2 py-4" onClick={handleClick} >
               <Image
-              className='2xl:block hidden'
+                className='2xl:block hidden'
                 src="/01_Page/Path 59.png"
                 width={40}
                 height={80}
                 alt="move next"
               />
               <Image
-              className='2xl:hidden xl:block hidden'
+                className='2xl:hidden xl:block hidden'
                 src="/01_Page/Path 59.png"
                 width={30}
                 height={600}
                 alt="move next"
-              />  
+              />
               <Image
-              className='xl:hidden lg:block hidden'
+                className='xl:hidden lg:block hidden'
                 src="/01_Page/Path 59.png"
                 width={30}
                 height={600}
                 alt="move next"
-              />      
+              />
               <Image
-              className='lg:hidden md:block hidden'
+                className='lg:hidden md:block hidden'
                 src="/01_Page/Path 59.png"
                 width={25}
                 height={600}
                 alt="move next"
-              />        
+              />
               <Image
-              className='md:hidden sm:block hidden '
+                className='md:hidden sm:block hidden '
                 src="/01_Page/Path 59.png"
                 width={20}
                 height={80}
                 alt="move next"
-              />      
+              />
               <Image
-              className='sm:hidden block '
+                className='sm:hidden block '
                 src="/01_Page/Path 59.png"
                 width={30}
                 height={80}

@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from "react-intersection-observer";
 
 const Categories = () => {
   const images = [
@@ -28,12 +30,36 @@ const Categories = () => {
     }
   };
 
+  const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [ref2, inView2] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [ref3, inView3] = useInView({ threshold: 0.1, triggerOnce: true });
+
+  const controls1 = useAnimation();
+  const controls3 = useAnimation();
+  const controls2 = useAnimation();
+
+  useEffect(() => {
+    if (inView1) controls1.start('visible');
+    if (inView2) controls2.start('visible');
+    if (inView3) controls3.start('visible');
+  }, [inView1, inView2, inView3,controls1,controls2 ,controls3]);
+
+
   return (
     <div className="h-screen grid grid-rows-7 ">
       <div className=" row-span-1 flex lg:flex-row flex-col  lg:justify-between xl:item-center lg:items-end md:items-center justify-end h-full  item-center px-16 ">
-        <div className="flex justify-center lg:justify-start items-center ">
+        <motion.div className="flex justify-center lg:justify-start items-center "
+         variants={{
+          visible: { opacity: 1, x: 0 },
+          hidden: { opacity: 0, x: -50 },
+        }}
+        initial="hidden"
+        animate={controls1}
+        transition={{ duration: 1 }}
+        ref={ref1}
+      >
           <span className="font-lato 3xl:text-[40px] 2xl:text-[32px] xl:text-[27px] lg:text-[25px] md:text-[23px] sm:text-[30px] text-[20px] tracking-[0.2em] text-center md:text-start "> OUR CATEGORIES</span>
-        </div>
+        </motion.div>
         <div className="lg:flex w-32 justify-between ml-4  lg:justify-between hidden">
           <button
             onClick={handlePrev}
@@ -78,7 +104,7 @@ const Categories = () => {
           </button>
         </div>
         <div className="w-full overflow-hidden ">
-          <div
+          <motion.div
             className="flex transition-transform duration-300 "
             style={{
               transform: `translateX(-${startIndex * (100 / visibleImages)}%)`,
@@ -98,18 +124,36 @@ const Categories = () => {
                 />
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
 
 
       {/* Footer */}
-      <div className=" row-span-1 flex items-start justify-center px-4">
+      <motion.div className=" row-span-1 flex items-start justify-center px-4"
+      variants={{
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 50 },
+      }}
+      initial="hidden"
+      animate={controls2}
+      transition={{ duration: 1 }}
+      ref={ref2}
+      >
         <span className="font-lato 3xl:text-[50px] 2xl:text-[40px] xl:text-[37px] lg:text-[30px] md:text-[22px] sm:text-[20px] text-[12px] tracking-widest mb-4 text-center "> ONE PLATFORM FOR ALL PREMIUM LISTENINGS</span>
-      </div>
-      <div className=" row-span-1 flex items-start justify-center px-4">
+      </motion.div>
+      <motion.div className=" row-span-1 flex items-start justify-center px-4"
+      variants={{
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 60 },
+      }}
+      initial="hidden"
+      animate={controls3}
+      transition={{ duration: 0.8 }}
+      ref={ref3}
+      >
         <span className="font-lato 3xl:text-[40px] 2xl:text-[32px] xl:text-[27px] lg:text-[25px] md:text-[20px] sm:text-[22px] text-[18px] tracking-[0.20em] mb-4 text-center md:text-start"> UNLIMITED POTENTIAL</span>
-      </div>
+      </motion.div>
     </div>
   );
 };
