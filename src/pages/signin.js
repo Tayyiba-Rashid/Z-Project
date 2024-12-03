@@ -1,6 +1,5 @@
 import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
-import {
-  auth,
+import auth, {
   signInWithFacebook,
   signInWithGithub,
   signInWithGoogle,
@@ -8,22 +7,22 @@ import {
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { useRouter } from "next/router";
+
+import React from "react";
 import Link from "next/link";
 
-const SignIn = () => {
+function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
 
-  const handleSignIn = async (e) => {
-    e.preventDefault();
+  const handleSignIn = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       router.push("/gallery");
     } catch (err) {
       console.log(err.message);
-      setError(err.message);
     }
   };
 
@@ -95,7 +94,7 @@ const SignIn = () => {
           </div>
           {error && <p className="text-red-500 text-sm">{error}</p>}
           <button
-            type="submit"
+            type="button"
             onClick={handleSignIn}
             className="bg-black w-full px-4 py-2 font-semibold text-white rounded-md bg-zimo-theme hover:bg-zimo-theme-dark"
           >
@@ -128,16 +127,17 @@ const SignIn = () => {
           </button>
         </div>
         <p className="text-sm text-center text-gray-500">
-          Don&apos;t have an account?{" "}
-          <Link href="/signup"
-          className="font-medium text-zimo-theme hover:underline">
-        
-              Sign Up
+        Don&apos;t have an account?{" "}
+          <Link
+            href="/signup"
+            className="font-medium text-zimo-theme hover:underline"
+          >
+            Sign Up
           </Link>
         </p>
       </div>
     </div>
   );
-};
+}
 
 export default SignIn;

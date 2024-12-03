@@ -1,7 +1,6 @@
 import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import {
-  auth,
+import  auth, {
   signInWithFacebook,
   signInWithGoogle,
   signInWithGithub,
@@ -9,7 +8,6 @@ import {
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -96,7 +94,6 @@ const SignUp = () => {
           </div>
           {error && <p className="text-red-500 text-sm">{error}</p>}
           <button
-            onClick={handleSignUp}
             type="submit"
             className=" bg-black w-full px-4 py-2 font-semibold text-white rounded-md bg-zimo-theme hover:bg-zimo-theme-dark"
           >
@@ -134,7 +131,7 @@ const SignUp = () => {
             href="/signin"
             className="font-medium text-zimo-theme hover:underline"
           >
-            Sign Up
+            Sign In
           </Link>
         </p>
       </div>

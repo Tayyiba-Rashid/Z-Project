@@ -1,9 +1,9 @@
 import ImageUpload from '@/components/imageUpload'
 import  { React, useEffect, useState } from 'react'
 import { signOut } from "firebase/auth";
-import auth from '@/firebaseConfig';
 import Header from '@/components/header';
 import Router, { useRouter } from 'next/router';
+import auth from '@/firebaseConfig';
 
 function Gallery() {
   const [isSignedIn, setIsSignedIn] = useState(true);
