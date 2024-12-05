@@ -1,9 +1,10 @@
+import React from 'react'
+import Login from './login'
 
-
-export default function Home() {
+function Home() {
   return (
-    <>
-    <div className="bg-gray-500">test</div>
-    </>
-  );
+    <Login />
+  )
 }
+
+export default Home
