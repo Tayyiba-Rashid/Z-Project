@@ -7,6 +7,7 @@ function Testimonials() {
     const testimonials = t('testimonials', { returnObjects: true })
     const [currentTestimonial, setCurrentTestimonial] = useState(0)
     const activeTestimonial = testimonials[currentTestimonial];
+    
     console.log("testimonials:", testimonials);
 
     const handleSelect = (index) => {
