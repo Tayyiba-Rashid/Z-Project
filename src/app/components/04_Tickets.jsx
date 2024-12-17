@@ -10,11 +10,9 @@ function Tickets() {
             <div className='col-span-1  3xl:pl-[220px] 2xl:pl-[150px] xl:pl-[120px] lg:pl-[140px] flex flex-col justify-evenly lg:items-start items-center'>
                 <div className='2xl:text-[18px] sm:text-[14px] text-[12px] text-lightb'>{t('easy_steps') || 'Easy and Fast'} </div>
                 <div className='2xl:text-[50px] xl:text-[40px] sm:text-[30px] text-[25px] lg:text-start text-center text-darkb font-bold pb-10'>
-                    {/* Book Your Next Trip In */}
                     {t('title1')}
                     <br />
                     {t('title2')}
-                     {/* 3 Easy Steps */}
                      </div>
                 <div className='flex flex-col justify-evenly sm:px-0 px-10'>
                     {/* 1 */}

@@ -11,11 +11,9 @@ function Subscription() {
                 <div className='relative w-4/5 bg-[#DFD7F9] lg:rounded-tl-[200px] rounded-tl-[150px] bg-opacity-20 flex flex-col items-center justify-evenly 2xl:h-[496px] lg:h-[400px] sm:h-[350px] h-[496px]'>
 
                     <div className='lg:text-[27px] 2xl:text-[33px] font-normal sm:font-normal text-lightb text-center sm:w-full w-2/3  z-10'>
-                    {t('subscribe1')}
-                    {/* Subscribe to get information, latest news and other  */}
-                    <br className='sm:block hidden'/> 
-                    {t('subscribe2')}
-                    {/* interesting offers about Cobham */}
+                        {t('subscribe1')}
+                        <br className='sm:block hidden' />
+                        {t('subscribe2')}
                     </div>
                     <div className="flex lg:flex-row flex-col items-center justify-center 2xl:h-[83px] lg:h-[60px] w-full z-10">
                         {/* Email Input Section */}
@@ -23,14 +21,13 @@ function Subscription() {
                             <FiMail className="text-gray-400 mr-3 size-8" />
                             <input
                                 type="email"
-                                placeholder= {t('placeholder')}
+                                placeholder={t('placeholder')}
                                 className="w-full text-gray-600 placeholder-gray-400 focus:outline-none text-[14px]"
                             />
                         </div>
 
                         {/* Subscribe Button */}
                         <button className="bg-[#FF946D] hover:bg-[#ff6d38] w-[241px] h-full text-white text-[17px] lg:ml-4 px-6 py-3 rounded-lg font-bold">
-                            {/* Subscribe */}
                             {t('button')}
                         </button>
                     </div>

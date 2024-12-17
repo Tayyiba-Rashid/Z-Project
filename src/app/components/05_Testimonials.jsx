@@ -7,7 +7,7 @@ function Testimonials() {
     const testimonials = t('testimonials', { returnObjects: true })
     const [currentTestimonial, setCurrentTestimonial] = useState(0)
     const activeTestimonial = testimonials[currentTestimonial];
-    
+
     console.log("testimonials:", testimonials);
 
     const handleSelect = (index) => {
@@ -33,15 +33,12 @@ function Testimonials() {
             <div className='col-span-1 grid-rows-6 h-full flex flex-col justify-between 3xl:pl-[220px] 2xl:pl-[150px] xl:pl-[120px] lg:pl-[140px]'>
                 <div>
                     <div className='2xl:text-[18px] sm:text-[14px] text-[12px] text-lightb lg:text-start text-center'>
-                        {/* Testimonials */}
                         {t('title')}
                     </div>
                     <div className='2xl:text-[50px] xl:text-[40px] sm:text-[30px] text-[25px] lg:text-start text-center text-darkb font-bold pb-10'>
                         {t('what_people_say')}
-                        {/* What People Say  */}
                         <br />
                         {t('about_us')}
-                        {/* About Us. */}
                     </div>
                 </div>
                 <div className='lg:block hidden'>

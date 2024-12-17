@@ -7,6 +7,8 @@ import Logo from "./components/06_Logo";
 import Subscription from "./components/07_Subscription";
 import Footer from "./components/08_Footer";
 
+
+
 export default function Home() {
   return (
     <>
