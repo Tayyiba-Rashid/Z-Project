@@ -1,0 +1,26 @@
+{
+  "title": "Testimonials",
+  "what_people_say": "What People Say",
+  "about_us": "About Us",
+  "testimonials": [
+    {
+      "quote": "“On the Windows talking painted pasture yet its express parties use. Sure last upon he same as knew next. Of believed or diverted no.”",
+      "name": "Mike Taylor",
+      "location": "Lahore, Pakistan",
+      "image": "/05_Testimonial/Image.png"
+    },
+    {
+      "quote": "“An excellent platform that has helped me grow my business significantly. Highly recommended!”",
+      "name": "Chris Thomas",
+      "location": "CEO of Red Button",
+      "image": "/04_Tickets.jsx/Mask Group.png"
+    },
+    {
+      "quote": "“Lorem lorem lorem lorem lorem lorem lorem lorem lorem An excellent platform that has helped me grow my business significantly. Highly recommended!”",
+      "name": "Thomas",
+      "location": "CEO of Red Button",
+      "image": "/05_Testimonial/Image.png"
+    }
+  ]
+}
+

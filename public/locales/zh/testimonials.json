@@ -1,0 +1,25 @@
+{
+  "title": "客户评价",
+  "what_people_say": "人们怎么说",
+  "about_us": "关于我们",
+  "testimonials": [
+    {
+      "quote": "“在窗户上谈话的油漆牧场，但它的快速派对使用。确实最后他同样知道接下来的事。相信或转移的没有。”",
+      "name": "麦克·泰勒",
+      "location": "拉合尔，巴基斯坦",
+      "image": "/05_Testimonial/Image.png"
+    },
+    {
+      "quote": "“一个优秀的平台，帮助我大大地发展了我的业务。强烈推荐！”",
+      "name": "克里斯·托马斯",
+      "location": "红色按钮的CEO",
+      "image": "/04_Tickets.jsx/Mask Group.png"
+    },
+    {
+      "quote": "“这个平台对于我的业务来说是一次彻底的游戏改变。我在短时间内看到了惊人的增长。”",
+      "name": "托马斯·克拉克",
+      "location": "绿色科技的CEO",
+      "image": "/05_Testimonial/Image.png"
+    }
+  ]
+}

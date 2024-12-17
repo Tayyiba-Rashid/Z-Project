@@ -1,0 +1,19 @@
+{
+  "top_selling": "热销",
+  "top_destinations": "最受欢迎的目的地",
+  "italy": {
+    "destination": "罗马，意大利",
+    "price": "¥5.42万",
+    "duration": "10日游"
+  },
+  "uk": {
+    "destination": "伦敦，英国",
+    "price": "¥4.2万",
+    "duration": "12日游"
+  },
+  "europe": {
+    "destination": "全欧洲",
+    "price": "¥15万",
+    "duration": "28日游"
+  }
+}

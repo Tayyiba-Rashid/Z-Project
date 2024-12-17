@@ -1,0 +1,19 @@
+{
+    "top_selling": "سب سے زیادہ فروخت",
+    "top_destinations": "سب سے مشہور مقامات",
+    "italy": {
+      "destination": "روم، اٹلی",
+      "price": "۵٫۴۲ ہزار ڈالر",
+      "duration": "۱۰ دن کا سفر"
+    },
+    "uk": {
+      "destination": "لندن، برطانیہ",
+      "price": "۴٫۲ ہزار ڈالر",
+      "duration": "۱۲ دن کا سفر"
+    },
+    "europe": {
+      "destination": "پورا یورپ",
+      "price": "۱۵ ہزار ڈالر",
+      "duration": "۲۸ دن کا سفر"
+    }
+  }

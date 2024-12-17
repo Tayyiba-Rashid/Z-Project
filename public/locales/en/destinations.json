@@ -1,0 +1,20 @@
+{
+    "top_selling": "Top Selling",
+    "top_destinations": "Top Destinations",
+    "italy": {
+      "destination": "Rome, Italy",
+      "price": "$5.42k",
+      "duration": "10 Days Trip"
+    },
+    "uk": {
+      "destination": "London, UK",
+      "price": "$4.2k",
+      "duration": "12 Days Trip"
+    },
+    "europe": {
+      "destination": "Full Europe",
+      "price": "$15k",
+      "duration": "28 Days Trip"
+    }
+  }
+  

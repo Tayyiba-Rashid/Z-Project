@@ -1,0 +1,30 @@
+{
+
+      "easy_steps": "Easy and Fast",
+      "title1": "Book Your Next Trip In",
+      "title2": "3 Easy Steps",
+      "step_1": {
+        "title": "Choose Destination",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus."
+      },
+      "step_2": {
+        "title": "Make Payment",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus."
+      },
+      "step_3": {
+        "title": "Reach Airport on Selected Date",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus."
+      
+    },
+    "trip_to_greece": {
+      "title": "Trip To Greece",
+      "date": "14-29 June | by Robbin Josh",
+      "status": "24 people going"
+    },
+    "trip_to_rome": {
+      "title": "Trip to Rome",
+      "status": "Ongoing",
+      "progress": "40% completed"
+    }
+  }
+  
