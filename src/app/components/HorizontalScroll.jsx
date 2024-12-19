@@ -31,7 +31,7 @@ export default function HorizontalScroll() {
         pin: true,
         scrub: 1,
         end: () => container.scrollWidth - window.innerWidth,
-        markers: true,
+         
       },
     });
 
