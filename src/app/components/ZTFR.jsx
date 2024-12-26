@@ -513,7 +513,7 @@ function ZTFR() {
                         <div className='flex flex-col justify-center items-end'>
                             <p className='3xl:text-[60px] 2xl:text-[50px] xl:text-[35px] lg:text-[35px] md:text-[30px] sm:text-[25px] text-[20px] tracking-widest leading-none 3xl:pr-[18px] xl:pr-[11px] lg:pr-[9px] md:pr-[8px] sm:pr-[7px] pr-[6px] '>LET'S DO</p>
                             <p className='3xl:text-[185px] 2xl:text-[150px] xl:text-[95px] lg:text-[90px]  md:text-[90px] sm:text-[70px] text-[60px] tracking-widest sm:leading-normal leading-none  2xl:pr-0 '>THIS</p>
-                            <p className='3xl:text-[12px] 2xl:text-[9px] xl:text-[8px] lg:text-[6.5px] md:text-[6px] sm:text-[5px] text-[4px] 2xl:tracking-widest 3xl:pr-[25px] 2xl:pr-[24px]  xl:pr-[14px] lg:pr-[15px] md:pr-[15px] sm:pr-[11px] pr-[10px] '>UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS WINDOW</p>
+                            <p className='3xl:text-[12px] 2xl:text-[9px] xl:text-[8px] lg:text-[6.5px] md:text-[6px] sm:text-[5px] text-[4.5px] 2xl:tracking-widest 3xl:pr-[25px] 2xl:pr-[24px]  xl:pr-[14px] lg:pr-[15px] md:pr-[15px] sm:pr-[11px] pr-[10px] '>UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS WINDOW</p>
                         </div>
                     </div>
                     {/* MAIN COL 3 */}
@@ -580,31 +580,39 @@ function ZTFR() {
                 </main>
 
                 <footer className='row-span-1 flex flex-col justify-end xl:px-[50px] md:px-[27px] px-[16px] lg:gap-0  xl:pb-[24px] md:pb-[20px] sm:pb-[16px] pb-[12px] '>
-                    <div className='w-full  text-start  tracking-widest  3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[3px]'>
+                    <div className='w-full  text-start  tracking-widest  3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[3px] lg:block hidden '>
                         ZITRANSFER 2023
                     </div>
-                    <div className='w-full  flex flex-row justify-between '>
-                        <div className=' text-start flex justify-start 2xl:gap-8 lg:gap-4 gap-2'>
-                            <span className=' 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[3px]  tracking-widest'>ALL RIGHTS RESERVED</span>
-                            <span className=' 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[3px]  tracking-widest'>ZITRANSFER IS A PART OF ZIMO GROUP</span>
+                    <div className='w-full   flex flex-col lg:flex-row justify-between '>
+                        <div className=' text-start flex lg:justify-start lg:items-end justify-center items-center  2xl:gap-8 lg:gap-4 gap-2'>
+                            <span className=' 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[4.5px]  tracking-widest lg:hidden block'> ZITRANSFER 2023</span>
+                            <span className=' 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[4.5px]  tracking-widest'>ALL RIGHTS RESERVED</span>
+                            <span className=' 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[4.5px]  tracking-widest'>ZITRANSFER IS A PART OF ZIMO GROUP</span>
                         </div>
-                        <div className=' text-end justify-end  sm:tracking-widest tracking-tighter 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[3px] flex md:gap-2  '>
-                            <span><svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className='md:h-[6px] md:w-[5px] h-[4px] w-[3px]'
-                                viewBox="0 0 5.018 6.386"
-                            >
-                                <path
-                                    id="Path_27216"
-                                    data-name="Path 27216"
-                                    d="M66.509-30.72a1.7,1.7,0,0,0-1.6,1.788v.511h-.456A.486.486,0,0,0,64-27.91v3.065a.486.486,0,0,0,.456.511h4.106a.486.486,0,0,0,.456-.511V-27.91a.486.486,0,0,0-.456-.511h-.456v-.511A1.705,1.705,0,0,0,66.59-30.7.207.207,0,0,0,66.509-30.72Zm0,.511a1.211,1.211,0,0,1,1.14,1.277v.511H65.369v-.511A1.211,1.211,0,0,1,66.509-30.209Z"
-                                    transform="translate(-64 30.72)"
-                                />
-                            </svg>
-                            </span>
-                            <span>  ZITRANSFER USES ADVANCED ENCRYPTION STANDARD (AES) 256-BIT TO PROTECT THE CONFIDENTIALITY OF THE DATA YOU UPLOAD.
-                            </span>
+                        <div className=" flex items-end justify-center sm:tracking-widest tracking-tighter 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[5px] sm:text-[5px] text-[4.5px]">
+                            <div className="flex h-full items-end gap-2 ">
+                                {/* Lock Icon */}
+                                <span className="flex items-end h-full">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="md:h-[6px] md:w-[5px] h-[6px] w-[5px]"
+                                        viewBox="0 0 5.018 6.386"
+                                    >
+                                        <path
+                                            id="Path_27216"
+                                            data-name="Path 27216"
+                                            d="M66.509-30.72a1.7,1.7,0,0,0-1.6,1.788v.511h-.456A.486.486,0,0,0,64-27.91v3.065a.486.486,0,0,0,.456.511h4.106a.486.486,0,0,0,.456-.511V-27.91a.486.486,0,0,0-.456-.511h-.456v-.511A1.705,1.705,0,0,0,66.59-30.7.207.207,0,0,0,66.509-30.72Zm0,.511a1.211,1.211,0,0,1,1.14,1.277v.511H65.369v-.511A1.211,1.211,0,0,1,66.509-30.209Z"
+                                            transform="translate(-64 30.72)"
+                                        />
+                                    </svg>
+                                </span>
+                                {/* Text */}
+                                <span className=" flex items-end h-full leading-none">
+                                    ZITRANSFER USES ADVANCED ENCRYPTION STANDARD (AES) 256-BIT TO PROTECT THE CONFIDENTIALITY OF THE DATA YOU UPLOAD.
+                                </span>
+                            </div>
                         </div>
+
                     </div>
                 </footer>
             </section>
@@ -612,3 +620,7 @@ function ZTFR() {
     )
 }
 export default ZTFR
+{/* <div className=' flex  justify-center items-center'>
+                            
+                            </div> */}
+// <span className='h-full bg-green-400 leading-none text- flex items-end justify-end '>
