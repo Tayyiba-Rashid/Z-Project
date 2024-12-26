@@ -1,10 +1,10 @@
 "use client"
 import { useClickAway } from '@uidotdev/usehooks';
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 function ZTFR() {
     const [isOpen, setIsOpen] = useState(true)
-    const [fileName, setFileName] = useState([])
+    const [files, setFiles] = useState([])
     const fileInput = useRef(null)
 
     const handleClick = () => {
@@ -12,9 +12,26 @@ function ZTFR() {
             fileInput.current.click()
         }
     }
+
+    const formatFileSize = (size) => {
+        if (size < 1024) return `${size} B`
+        else if (size < 1024 * 1024) return `${(size / 1024).toFixed(2)} KB`
+        else if (size < 1024 * 1024 * 1024) return `${(size / (1024 * 1024)).toFixed(2)} MB`
+        else return `${(size / (1024 * 1024 * 1024)).toFixed(2)} GB`
+    }
+
+    const getFileExtension = (fileName) => {
+        const parts = fileName.split('.')
+        return parts.length > 1 ? `${parts.pop()}` : 'Unknown'
+    }
+
     const handleFileChange = (e) => {
-        const files = Array.from(e.target.files)
-        setFileName(files)
+        const selectedFiles = Array.from(e.target.files).map((file) => ({
+            name: file.name,
+            size: formatFileSize(file.size).toUpperCase(),
+            type: getFileExtension(file.name).toUpperCase(),
+        }))
+        setFiles(selectedFiles)
     }
 
     const ref = useClickAway(() => {
@@ -22,13 +39,15 @@ function ZTFR() {
     });
     const handleToggle = () => {
         setIsOpen((prev) => (!prev))
-        console.log(isOpen);
 
     }
+    useEffect(() => {
+        console.log(isOpen);
+    }, [isOpen]);
     return (
         <>
             {/* sm: md: lg: xl: 2xl: 3xl: */}
-            <section className='h-[100vh]  grid grid-rows-9 xl:pt-[40px] md:pt-[34px] py-[40px]'>
+            <section className='h-[100vh]  grid grid-rows-9 xl:pt-[40px] md:pt-[34px] sm:pt-[25px] pt-[16px]'>
                 {/* HEADER */}
                 <header className=' row-span-1 flex justify-between items-start xl:px-[50px] md:px-[27px] px-[16px]'>
                     {/* header-left */}
@@ -244,7 +263,7 @@ function ZTFR() {
                             <>
                                 <div
                                     onClick={handleToggle}
-                                    className='relative bg-black flex flex-col 3xl:w-[157px] 3xl:h-[489px] 2xl:w-[126px] 2xl:h-[391px] xl:w-[105px] xl:h-[326px] lg:w-[84px]  lg:h-[335px] md:w-[102px]  md:h-[454px] sm:w-[70px]  sm:h-[330px] w-3/5 h-4/5 rounded-r-2xl'>
+                                    className='relative bg-black flex flex-col 3xl:w-[157px] 3xl:h-[489px] 2xl:w-[126px] 2xl:h-[391px] xl:w-[105px] xl:h-[326px] lg:w-[84px]  lg:h-[335px] md:w-[102px]  md:h-[454px] sm:w-[70px]  sm:h-[330px] h-[370px] w-3/5 rounded-r-2xl'>
                                     {/* LOCK SVG */}
                                     <div className='absolute top-0 right-0 text-white pt-[21px] pr-[18px]'>
                                         <svg
@@ -279,7 +298,7 @@ function ZTFR() {
                             {/* ON OPEN */}
                             <div
                                 ref={ref}
-                                className='absolute  border-none 3xl:left-[157px] 2xl:left-[126px] xl:left-[105px] lg:left-[84px] md:left-[102px] sm:left-[70px] left-[15%] 3xl:h-[489px]  2xl:h-[391px]  xl:h-[326px] lg:h-[335px] md:h-[454px] sm:h-[330px] h-[54%] 3xl:w-[314px] 2xl:w-[265px] xl:w-[245px] lg:w-[235px] md:w-[300px] sm:w-[225px] w-[225px]  rounded-2xl bg-transparent '>
+                                className='absolute  border-none 3xl:left-[157px] 2xl:left-[126px] xl:left-[105px] lg:left-[84px] md:left-[102px] sm:left-[70px] left-[15%] 3xl:h-[489px]  2xl:h-[391px]  xl:h-[326px] lg:h-[335px] md:h-[454px] sm:h-[330px] h-[370px] 3xl:w-[314px] 2xl:w-[265px] xl:w-[245px] lg:w-[235px] md:w-[300px] sm:w-[225px] w-[225px]  rounded-2xl bg-transparent '>
                                 <div className='relative h-full w-full'>
                                     {/* left */}
                                     <div className='absolute top-0 left-0 w-1/3 h-1/5 rounded-tl-2xl'>
@@ -312,9 +331,9 @@ function ZTFR() {
                                     <div className='absolute bg-black top-0 right-0 w-2/3 h-1/5 rounded-tr-2xl '>
                                         <div className='relative h-full w-full text-white'>
                                             {/* top text */}
-                                            <div className='pl-2 text-white w-full h-full flex flex-col justify-center items-start'>
-                                                <div className='text-[8px] sm:text-[10px] md:text-[14px] lg:text-[11px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px] tracking-widest'>UPLOAD FILES</div>
-                                                <div className='text-[25px] sm:text-[25px] md:text-[33px] lg:text-[28px] xl:text-[28px] 2xl:text-[38px] 3xl:text-[40px]  '>OR</div>
+                                            <div className='pl-[11px] text-white w-full h-full flex flex-col justify-center items-start'>
+                                                <div className='text-[8px] sm:text-[10px] md:text-[14px] lg:text-[10px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px] tracking-widest  lg:mt-[19px] sm:mt-[11px] mt-[9px] '>UPLOAD FILES</div>
+                                                <div className='text-[25px] sm:text-[25px] md:text-[33px] lg:text-[28px] xl:text-[28px] 2xl:text-[38px] 3xl:text-[40px] '>OR</div>
 
                                             </div>
                                             {/* LOCK */}
@@ -332,21 +351,26 @@ function ZTFR() {
                                             </div>
                                             <div className='absolute  top-full right-0 bg-black rounded-b-2xl h-[400%] 3xl:w-[314px] 2xl:w-[265px] xl:w-[245px] lg:w-[235px] md:w-[300px] sm:w-[225px] w-[225px] '>
                                                 {/* 2 */}
-                                                <div className='w-full h-full flex flex-col px-4'>
+                                                <div className='w-full h-full flex flex-col px-[19px]'>
                                                     {/* FILE LIST */}
                                                     <div className="h-2/5 w-full">
-                                                        {fileName.length > 0 ? (
+                                                        {files.length > 0 ? (
                                                             <div className="text-white row-span-2 flex flex-col justify-between items-start px-4 py-2  overflow-y-auto overflow-x-hidden  h-full">
-                                                                {fileName.map((file, index) => (
-                                                                    <p key={index} className='break-words text-start text-white text-[8px] sm:text-[10px] md:text-[14px] lg:text-[11px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px]'>
-                                                                        {file.name}
-                                                                    </p>
+                                                                {files.map((file, index) => (
+                                                                    <div key={index} className='break-words text-start text-white text-[8px] sm:text-[10px] md:text-[14px] lg:text-[11px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px]'>
+                                                                        <ul>
+                                                                            <li>
+                                                                                <span className='text-[10px]'>{file.name}</span> <br />
+                                                                                <span className='text-[10px] font-extralight opacity-[50%]'>{file.size} - {file.type}</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
                                                                 ))}
                                                             </div>
                                                         ) : (
-                                                            <div className='relative h-full w-full text-white row-span-2 flex flex-col justify-between items-end px-4 pt-2 '>
-                                                                <p className='text-[8px] sm:text-[10px] md:text-[14px] lg:text-[11px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px] tracking-widest'>SELECT A FOLDER</p>
-                                                                <p className='absolute top-[30%] -right-[40%] text-[25px] sm:text-[25px] md:text-[35px] lg:text-[28px] xl:text-[28px] 2xl:text-[32px] 3xl:text-[40px] '>UP TO  &nbsp; <span className='text-black'> 1 TB</span>
+                                                            <div className='relative h-full w-full text-white row-span-2 flex flex-col justify-between items-end pt-2 '>
+                                                                <p className='text-[8px] sm:text-[10px] md:text-[14px] lg:text-[10px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px] tracking-widest'>SELECT A FOLDER</p>
+                                                                <p className='absolute top-[30%] -right-[40%] text-[25px] sm:text-[25px] md:text-[35px] lg:text-[28px] xl:text-[28px] 2xl:text-[32px] 3xl:text-[40px] flex'>UP TO &nbsp; <span className='text-black 3xl:pl-1 2xl:pl-[6px] xl:pl-2 lg:pl-1 md:pl-3 sm:pl-2 pl-2 '> 1 TB  </span>
                                                                 </p>
                                                                 <p className='text-[8px] sm:text-[10px] md:text-[14px] lg:text-[11px] xl:text-[12px] 2xl:text-[16px] 3xl:text-[20px] tracking-widest'>FREE</p>
                                                             </div>
@@ -364,16 +388,16 @@ function ZTFR() {
                                                             <label
                                                                 htmlFor="title"
                                                                 className="absolute left-0 top-4 text-gray-400 text-base transition-all peer-placeholder-shown:top-[60%]   peer-placeholder-shown:text-white peer-focus:top-[20%] peer-focus:text-sm peer-focus:text-gray-400
-                                                                peer-placeholder-shown:text-[12px]
-                                                                sm:peer-placeholder-shown:text-xs
-                                                                md:peer-placeholder-shown:text-sm 
-                                                                2xl:peer-placeholder-shown:text-md
+                                                                peer-placeholder-shown:text-[9px]
+                                                                sm:peer-placeholder-shown:text-[9px]
+                                                                md:peer-placeholder-shown:text-[9px]
+                                                                2xl:peer-placeholder-shown:text-[12px]
                                                                 tracking-widest
-                                                                2xl:peer-focus:text-md 
-                                                                xl:peer-focus:text-md 
+                                                                peer-focus:text-[9px]
+                                                                sm:peer-focus:text-[9px]
                                                                 md:peer-focus:text-sm 
-                                                                sm:peer-focus:text-xs 
-                                                                peer-focus:text-[12px]"
+                                                                xl:peer-focus:text-[9px] 
+                                                                2xl:peer-focus:text-[12px] "
                                                             >
                                                                 TITLE
                                                             </label>
@@ -389,16 +413,17 @@ function ZTFR() {
                                                             <label
                                                                 htmlFor="title"
                                                                 className="absolute left-0 top-2 text-white text-sm transition-all peer-focus:text-gray-400
-                                                                  text-[12px]
-                                                                sm:text-xs
-                                                                md:text-sm 
-                                                                2xl:text-md
+                                                                text-[9px]
+                                                                sm:text-[9px]
+                                                                md:text-[9px] 
+                                                                2xl:text-[12px]
                                                                 tracking-widest
-                                                                2xl:peer-focus:text-md 
-                                                                xl:peer-focus:text-md 
+                                                                peer-focus:text-[9px]
+                                                                sm:peer-focus:text-[9px] 
                                                                 md:peer-focus:text-sm 
-                                                                sm:peer-focus:text-xs 
-                                                                peer-focus:text-[12px]"
+                                                                xl:peer-focus:text-[9px] 
+                                                                2xl:peer-focus:text-[12px] 
+                                                                "
                                                             >
                                                                 NOTE
                                                             </label>
@@ -472,15 +497,15 @@ function ZTFR() {
                     {/* MAIN COL 2 */}
                     <div className='h-full lg:col-span-1 col-span-2  flex items-center justify-center'>
                         <div className='flex flex-col justify-center items-end'>
-                            <p className='3xl:text-[60px] 2xl:text-[50px] xl:text-[35px] lg:text-[35px] md:text-[30px] sm:text-[25px] text-[20px] tracking-widest leading-none'>LET'S DO</p>
-                            <p className='3xl:text-[185px] 2xl:text-[150px] xl:text-[95px] lg:text-[90px]  md:text-[90px] sm:text-[70px] text-[60px] tracking-widest sm:leading-normal leading-none'>THIS</p>
-                            <p className='3xl:text-[12px] 2xl:text-[9px] xl:text-[8px] lg:text-[7px] md:text-[6px] sm:text-[5px] text-[4px] sm:tracking-widest'>UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS WINDOW</p>
+                            <p className='3xl:text-[60px] 2xl:text-[50px] xl:text-[35px] lg:text-[35px] md:text-[30px] sm:text-[25px] text-[20px] tracking-widest leading-none 3xl:pr-[18px] xl:pr-[11px] lg:pr-[9px] md:pr-[8px] sm:pr-[7px] pr-[6px] '>LET'S DO</p>
+                            <p className='3xl:text-[185px] 2xl:text-[150px] xl:text-[95px] lg:text-[90px]  md:text-[90px] sm:text-[70px] text-[60px] tracking-widest sm:leading-normal leading-none  2xl:pr-0 '>THIS</p>
+                            <p className='3xl:text-[12px] 2xl:text-[9px] xl:text-[8px] lg:text-[6.5px] md:text-[6px] sm:text-[5px] text-[4px] 2xl:tracking-widest 3xl:pr-[25px] 2xl:pr-[24px]  xl:pr-[14px] lg:pr-[15px] md:pr-[15px] sm:pr-[11px] pr-[10px] '>UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS WINDOW</p>
                         </div>
                     </div>
                     {/* MAIN COL 3 */}
 
                     <div className='h-full sm:col-span-1 flex items-center justify-end'>
-                        <div className='bg-black flex flex-col 3xl:w-[50px] 3xl:h-[203px] 2xl:w-[40px] 2xl:h-[171px] xl:w-[37px] xl:h-[142px] lg:w-[33px] lg:h-[147px] md:w-[40px] md:h-[171px] sm:w-[30px] sm:h-[143px] w-[30px]  h-[143px] rounded-l-2xl'>
+                        <div className='bg-black flex flex-col 3xl:w-[50px] 3xl:h-[203px] 2xl:w-[40px] 2xl:h-[171px] xl:w-[37px] xl:h-[142px] lg:w-[33px] lg:h-[147px] md:w-[40px] md:h-[171px] sm:w-[30px] sm:h-[143px] w-[25px]  h-[140px] rounded-l-2xl'>
                             <div className="flex justify-center items-center w-full h-full">
                                 <span className='rotate-90'>
                                     <svg
@@ -540,7 +565,7 @@ function ZTFR() {
                     </div>
                 </main>
 
-                <footer className='row-span-1 flex flex-col justify-end xl:px-[50px] md:px-[27px] px-[16px] lg:gap-0  '>
+                <footer className='row-span-1 flex flex-col justify-end xl:px-[50px] md:px-[27px] px-[16px] lg:gap-0  xl:pb-[24px] md:pb-[20px] sm:pb-[16px] pb-[12px]'>
                     <div className='w-full  lg:text-start text-center  tracking-widest  3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[6px] sm:text-[5px] text-[5px]'>
                         ZITRANSFER 2023
                     </div>
@@ -566,7 +591,7 @@ function ZTFR() {
                             </span>
                             <span>  ZITRANSFER USES ADVANCED ENCRYPTION STANDARD (AES) 256-BIT TO PROTECT THE CONFIDENTIALITY OF THE DATA YOU UPLOAD.
                             </span>
-                            </div>
+                        </div>
                     </div>
                 </footer>
             </section>
