@@ -53,7 +53,7 @@ function ZTFR() {
                     {/* header-left */}
                     <div>
                         <svg
-                            className="3xl:w-[148px] 3xl:h-[50px] 2xl:w-[117px] 2xl:h-[40px] xl:w-[99px] xl:h-[34px] lg:w-[79px] lg:h-[27px] md:w-[119px] md:h-[40px] sm:w-[73px] sm:h-[25px] w-[73px] h-[25px]"
+                            className="3xl:w-[148px] 3xl:h-[50px] 2xl:w-[117px] 2xl:h-[40px] xl:w-[99px] xl:h-[34px] lg:w-[79px] lg:h-[27px] md:w-[119px] md:h-[40px] sm:w-[73px] sm:h-[25px] w-[73px] h-[25px] cursor-pointer"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 147.169 50"
                             fill="currentColor"
@@ -92,7 +92,7 @@ function ZTFR() {
                         {/* right-1 */}
                         <div className='xl:px-[31px] px-[16px] '>
                             <svg
-                                className='3xl:w-[21px] 3xl:h-[25px] 2xl:w-[16px] 2xl:h-[20px] xl:w-[13px] xl:h-[16px] lg:w-[10px] lg:h-[13px] md:w-[20px] md:h-[23px] sm:w-[14px] sm:h-[18px] w-[14px] h-[18px]'
+                                className='3xl:w-[21px] 3xl:h-[25px] 2xl:w-[16px] 2xl:h-[20px] xl:w-[13px] xl:h-[16px] lg:w-[10px] lg:h-[13px] md:w-[20px] md:h-[23px] sm:w-[14px] sm:h-[18px] w-[14px] h-[18px] cursor-pointer'
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 21.088 25.5"
                             >
@@ -124,7 +124,7 @@ function ZTFR() {
                         <div>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                className='3xl:size-[50px] 2xl:size-[40px] xl:size-[33px] lg:size-[26.67px] md:size-[40px] sm:size-[25px] size-[25px]'
+                                className='3xl:size-[50px] 2xl:size-[40px] xl:size-[33px] lg:size-[26.67px] md:size-[40px] sm:size-[25px] size-[25px] cursor-pointer'
                                 viewBox="0 0 50 50"
                             >
                                 <g
@@ -263,7 +263,7 @@ function ZTFR() {
                             <>
                                 <div
                                     onClick={handleToggle}
-                                    className='relative bg-black flex flex-col 3xl:w-[157px] 3xl:h-[489px] 2xl:w-[126px] 2xl:h-[391px] xl:w-[105px] xl:h-[326px] lg:w-[84px]  lg:h-[335px] md:w-[102px]  md:h-[454px] sm:w-[70px]  sm:h-[330px] h-[370px] w-3/5 rounded-r-2xl'>
+                                    className='relative bg-black flex flex-col 3xl:w-[157px] 3xl:h-[489px] 2xl:w-[126px] 2xl:h-[391px] xl:w-[105px] xl:h-[326px] lg:w-[84px]  lg:h-[335px] md:w-[102px]  md:h-[454px] sm:w-[70px]  sm:h-[330px] h-[370px] w-3/5 rounded-r-2xl cursor-pointer'>
                                     {/* LOCK SVG */}
                                     <div className='absolute top-0 right-0 text-white pt-[21px] pr-[18px]'>
                                         <svg
@@ -355,9 +355,9 @@ function ZTFR() {
                                                     {/* FILE LIST */}
                                                     <div className="h-2/5 w-full">
                                                         {files.length > 0 ? (
-                                                            <div className="text-white row-span-2 flex flex-col justify-between items-start px-4 py-2  overflow-y-auto overflow-x-hidden  h-full">
+                                                            <div className="text-white row-span-2 flex flex-col justify-between items-start py-2  overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300  h-full">
                                                                 {files.map((file, index) => (
-                                                                    <div key={index} className='break-words text-start text-white text-[8px] sm:text-[10px] md:text-[14px] lg:text-[11px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px]'>
+                                                                    <div key={index} className='break-words text-start text-white text-[8px] sm:text-[10px] md:text-[14px] lg:text-[11px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px] tracking-widest'>
                                                                         <ul>
                                                                             <li>
                                                                                 <span className='text-[10px]'>{file.name}</span> <br />
@@ -381,13 +381,18 @@ function ZTFR() {
                                                         <div className="relative h-1/2 w-full flex flex-col justify-end text-white ">
                                                             <input
                                                                 id="title"
-                                                                className="peer w-full bg-transparent border-b border-white focus:border-b-2 focus:border-gray-400 focus:outline-none pt-4 pb-1 placeholder-transparent "
+                                                                className="peer w-full bg-transparent border-b border-white focus:border-b-2 focus:border-gray-400 focus:outline-none pt-4 pb-1 placeholder-transparent 3xl:text-[16px] 2xl:text-[14px]
+                                                                xl:text-[11px] lg:text-[10px] sm:text-[14px] text-[12px]"
                                                                 type="text"
                                                                 placeholder="Title"
                                                             />
                                                             <label
                                                                 htmlFor="title"
-                                                                className="absolute left-0 top-4 text-gray-400 text-base transition-all peer-placeholder-shown:top-[60%]   peer-placeholder-shown:text-white peer-focus:top-[20%] peer-focus:text-sm peer-focus:text-gray-400
+                                                                className="absolute left-0 top-5 xl:top-3 3xl:top-7 
+                                                                 text-gray-400  transition-all 2xl:peer-placeholder-shown:top-[60%]  
+                                                               peer-placeholder-shown:top-[60%]  
+                                                                peer-placeholder-shown:text-white 
+                                                                peer-focus:text-gray-400
                                                                 peer-placeholder-shown:text-[9px]
                                                                 sm:peer-placeholder-shown:text-[9px]
                                                                 md:peer-placeholder-shown:text-[9px]
@@ -395,10 +400,18 @@ function ZTFR() {
                                                                 tracking-widest
                                                                 peer-focus:text-[9px]
                                                                 sm:peer-focus:text-[9px]
-                                                                md:peer-focus:text-sm 
-                                                                xl:peer-focus:text-[9px] 
-                                                                2xl:peer-focus:text-[12px] "
-                                                            >
+                                                                md:peer-focus:text-[9px] 
+                                                                lg:peer-focus:text-[9px] 
+                                                                2xl:peer-focus:text-[12px] 
+                                                                3xl:peer-focus:top-7
+                                                                2xl:peer-focus:top-3
+                                                                xl:peer-focus:top-3
+                                                                peer-focus:top-5
+                                                                text-[9px]
+                                                                sm:text-[9px]
+                                                                md:text-[9px] 
+                                                                lg:text-[9px] 
+                                                                2xl:text-[12px]">
                                                                 TITLE
                                                             </label>
                                                         </div>
@@ -407,12 +420,13 @@ function ZTFR() {
                                                         <div className="relative text-white flex flex-col justify-end  h-1/2">
                                                             <input
                                                                 id="title"
-                                                                className="peer 2xl:text-lg xl:text-md bg-transparent border-b border-white focus:border-b-2 focus:border-gray-400 focus:outline-none  w-full pt-4 pb-1 placeholder-transparent"
+                                                                className="peer 3xl:text-[16px] 2xl:text-[14px] xl:text-[11px] sm:text-[14px] lg:text-[10px] text-[12px] bg-transparent border-b border-white focus:border-b-2 focus:border-gray-400 focus:outline-none w-full pt-4 pb-1 placeholder-transparent"
                                                                 type="text"
                                                             />
                                                             <label
                                                                 htmlFor="title"
-                                                                className="absolute left-0 top-2 text-white text-sm transition-all peer-focus:text-gray-400
+                                                                className="absolute left-0 top-4 2xl:top-3 3xl:top-[22px] transition-all
+                                                                 peer-focus:text-gray-400
                                                                 text-[9px]
                                                                 sm:text-[9px]
                                                                 md:text-[9px] 
@@ -420,8 +434,8 @@ function ZTFR() {
                                                                 tracking-widest
                                                                 peer-focus:text-[9px]
                                                                 sm:peer-focus:text-[9px] 
-                                                                md:peer-focus:text-sm 
-                                                                xl:peer-focus:text-[9px] 
+                                                                md:peer-focus:text-[9px]
+                                                                lg:peer-focus:text-[9px] 
                                                                 2xl:peer-focus:text-[12px] 
                                                                 "
                                                             >
@@ -505,7 +519,7 @@ function ZTFR() {
                     {/* MAIN COL 3 */}
 
                     <div className='h-full sm:col-span-1 flex items-center justify-end'>
-                        <div className='bg-black flex flex-col 3xl:w-[50px] 3xl:h-[203px] 2xl:w-[40px] 2xl:h-[171px] xl:w-[37px] xl:h-[142px] lg:w-[33px] lg:h-[147px] md:w-[40px] md:h-[171px] sm:w-[30px] sm:h-[143px] w-[25px]  h-[140px] rounded-l-2xl'>
+                        <div className='bg-black flex flex-col 3xl:w-[50px] 3xl:h-[203px] 2xl:w-[40px] 2xl:h-[171px] xl:w-[37px] xl:h-[142px] lg:w-[33px] lg:h-[147px] md:w-[40px] md:h-[171px] sm:w-[30px] sm:h-[143px] w-[25px]  h-[140px] rounded-l-2xl cursor-pointer'>
                             <div className="flex justify-center items-center w-full h-full">
                                 <span className='rotate-90'>
                                     <svg
@@ -565,20 +579,19 @@ function ZTFR() {
                     </div>
                 </main>
 
-                <footer className='row-span-1 flex flex-col justify-end xl:px-[50px] md:px-[27px] px-[16px] lg:gap-0  xl:pb-[24px] md:pb-[20px] sm:pb-[16px] pb-[12px]'>
-                    <div className='w-full  lg:text-start text-center  tracking-widest  3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[6px] sm:text-[5px] text-[5px]'>
+                <footer className='row-span-1 flex flex-col justify-end xl:px-[50px] md:px-[27px] px-[16px] lg:gap-0  xl:pb-[24px] md:pb-[20px] sm:pb-[16px] pb-[12px] '>
+                    <div className='w-full  text-start  tracking-widest  3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[3px]'>
                         ZITRANSFER 2023
                     </div>
-                    <div className='w-full  flex lg:flex-row flex-col lg:justify-between'>
-                        <div className=' lg:text-start text-center flex lg:justify-start justify-evenly lg:gap-8'>
-                            <span className=' 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[6px] sm:text-[5px] text-[5px]  tracking-widest'>ALL RIGHTS RESERVED</span>
-                            <span className=' 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[6px] sm:text-[5px] text-[5px]  tracking-widest'>ZITRANSFER IS A PART OF ZIMO GROUP</span>
+                    <div className='w-full  flex flex-row justify-between '>
+                        <div className=' text-start flex justify-start 2xl:gap-8 lg:gap-4 gap-2'>
+                            <span className=' 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[3px]  tracking-widest'>ALL RIGHTS RESERVED</span>
+                            <span className=' 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[3px]  tracking-widest'>ZITRANSFER IS A PART OF ZIMO GROUP</span>
                         </div>
-                        <div className=' lg:text-end lg:justify-end justify-center text-center  tracking-widest 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[6px] sm:text-[5px] text-[5px] flex gap-2 '>
+                        <div className=' text-end justify-end  sm:tracking-widest tracking-tighter 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[3px] flex md:gap-2  '>
                             <span><svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="5.018"
-                                height="6.386"
+                                className='md:h-[6px] md:w-[5px] h-[4px] w-[3px]'
                                 viewBox="0 0 5.018 6.386"
                             >
                                 <path
