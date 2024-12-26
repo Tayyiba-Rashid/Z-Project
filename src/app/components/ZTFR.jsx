@@ -607,7 +607,7 @@ function ZTFR() {
                                     </svg>
                                 </span>
                                 {/* Text */}
-                                <span className=" flex items-end h-full leading-none">
+                                <span className=" flex items-end h-full leading-none tracking-widest">
                                     ZITRANSFER USES ADVANCED ENCRYPTION STANDARD (AES) 256-BIT TO PROTECT THE CONFIDENTIALITY OF THE DATA YOU UPLOAD.
                                 </span>
                             </div>
