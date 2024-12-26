@@ -585,11 +585,11 @@ function ZTFR() {
                     </div>
                     <div className='w-full   flex flex-col-reverse lg:flex-row justify-between '>
                         <div className=' text-start flex lg:justify-start lg:items-end justify-center items-center  2xl:gap-8 lg:gap-4 gap-2'>
-                            <span className=' 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[4.5px]  tracking-widest lg:hidden block'> ZITRANSFER 2023</span>
-                            <span className=' 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[4.5px]  tracking-widest'>ALL RIGHTS RESERVED</span>
-                            <span className=' 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[4.5px]  tracking-widest'>ZITRANSFER IS A PART OF ZIMO GROUP</span>
+                            <span className=' 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[4.5px]  tracking-wide lg:hidden block'> ZITRANSFER 2023</span>
+                            <span className=' 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[4.5px]  tracking-wide'>ALL RIGHTS RESERVED</span>
+                            <span className=' 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[4px] sm:text-[4px] text-[4.5px]  tracking-wide'>ZITRANSFER IS A PART OF ZIMO GROUP</span>
                         </div>
-                        <div className=" flex items-end justify-center sm:tracking-widest tracking-tighter 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[5px] sm:text-[5px] text-[4px]">
+                        <div className=" flex items-end justify-center sm:tracking-widest tracking-tighter 3xl:text-[8px] 2xl:text-[7px] xl:text-[6px] lg:text-[5px] md:text-[5px] sm:text-[5px] text-[4.5px]">
                             <div className="flex h-full items-end gap-2 ">
                                 {/* Lock Icon */}
                                 <span className="flex items-end h-full">
@@ -607,7 +607,7 @@ function ZTFR() {
                                     </svg>
                                 </span>
                                 {/* Text */}
-                                <span className=" flex items-end h-full leading-none tracking-widest">
+                                <span className=" flex items-end h-full leading-none tracking-wide">
                                     ZITRANSFER USES ADVANCED ENCRYPTION STANDARD (AES) 256-BIT TO PROTECT THE CONFIDENTIALITY OF THE DATA YOU UPLOAD.
                                 </span>
                             </div>
