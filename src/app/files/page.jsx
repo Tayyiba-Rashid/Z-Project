@@ -25,6 +25,7 @@ function Index() {
       type: getFileExtension(file.name),
     }))
     setFiles((prevFiles) => [...prevFiles, ...selectedFiles])
+    console.log(files)
   }
 
   return (

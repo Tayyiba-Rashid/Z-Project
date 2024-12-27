@@ -2,27 +2,14 @@
 import { useClickAway } from '@uidotdev/usehooks';
 import React, { useEffect, useRef, useState } from 'react'
 import { useTheme } from '../context/ThemeContext';
+import { FileUploader } from 'react-drag-drop-files'
 import Svg from './Svg';
 function ZTFR() {
     const { currentTheme } = useTheme()
-    const [isDragging, setIsDragging] = useState(false);
     const [isOpen, setIsOpen] = useState(true);
     const [files, setFiles] = useState([]);
-    const fileInput = useRef(null);
 
 
-    useEffect(() => {
-        console.log(currentTheme.fgColor);
-        console.log(currentTheme.border);
-      }, [currentTheme.fgColor, currentTheme.border]);
-    
-    
-
-    const handleClick = () => {
-        if (fileInput.current) {
-            fileInput.current.click();
-        }
-    };
 
     const formatFileSize = (size) => {
         if (size < 1024) return `${size} B`;
@@ -36,14 +23,15 @@ function ZTFR() {
         return parts.length > 1 ? parts.pop() : "Unknown";
     };
 
-    const handleFileChange = (e) => {
-        const selectedFiles = Array.from(e.target.files).map((file) => ({
+    const handleFileChange = (fileList) => {
+        const selectedFiles = Array.from(fileList).map((file) => ({
             name: file.name,
-            size: formatFileSize(file.size).toUpperCase(),
-            type: getFileExtension(file.name).toUpperCase(),
-        }));
-        setFiles((prevFiles) => [...prevFiles, ...selectedFiles]);
-    };
+            size: formatFileSize(file.size),
+            type: getFileExtension(file.name),
+        }))
+        setFiles((prevFiles) => [...prevFiles, ...selectedFiles])
+        console.log(files)
+    }
 
     const ref = useClickAway(() => {
         setIsOpen(true);
@@ -52,31 +40,7 @@ function ZTFR() {
     const handleToggle = () => {
         setIsOpen((prev) => !prev);
     };
-    const handleDragOver = (e) => {
-        e.preventDefault();
-        setIsDragging(true);
-        console.log("1", isDragging);
 
-    };
-
-    const handleDragLeave = (e) => {
-        e.preventDefault();
-        setIsDragging(false);
-        console.log("2", isDragging);
-    };
-
-
-    const handleDrop = (e) => {
-        e.preventDefault();
-        setIsDragging(false);
-        const droppedFiles = Array.from(e.dataTransfer.files).map((file) => ({
-            name: file.name,
-            size: formatFileSize(file.size).toUpperCase(),
-            type: getFileExtension(file.name).toUpperCase(),
-        }));
-        setFiles((prevFiles) => [...prevFiles, ...droppedFiles]);
-    };
-    
 
     return (
         <>
@@ -330,33 +294,30 @@ function ZTFR() {
 
                                         className='absolute top-0 left-0 w-1/3 h-1/5 rounded-tl-2xl'>
                                         {/* UPLOAD ICON */}
-                                        <input
+                                        <FileUploader
                                             multiple
-                                            type="file"
-                                            className='hidden'
-                                            ref={fileInput}
-                                            onChange={handleFileChange} />
-                                        <div
-                                            onDrop={handleDrop}
-                                            onDragOver={handleDragOver}
-                                            onDragLeave={handleDragLeave}
-                                            className="h-full w-full flex items-center justify-center $ cursor-pointer">
+                                            handleChange={handleFileChange}
+                                            name="files" >
+                                            <div
 
-                                            <svg
-                                                onClick={handleClick}
-                                                className='size-[40px] sm:size-[48px] md:size-[62px] lg:size-[50px] xl:size-[45px] 2xl:size-[57px] 3xl:size-[67.557px] '
-                                                xmlns="http://www.w3.org/2000/svg"
+                                                className="h-full w-full flex items-center justify-center $ cursor-pointer">
 
-                                                viewBox="0 0 67.557 67.557"
-                                            >
-                                                <path
-                                                    id="Path_27378"
-                                                    data-name="Path 27378"
-                                                    d="M369.266,311H339.241V280.978h-7.506V311H301.709v7.506h30.025v30.025h7.506V318.51h30.025Z"
-                                                    transform="translate(-301.709 -280.978)"
-                                                />
-                                            </svg>
-                                        </div>
+                                                <svg
+                                                    className='size-[40px] sm:size-[48px] md:size-[62px] lg:size-[50px] xl:size-[45px] 2xl:size-[57px] 3xl:size-[67.557px] '
+                                                    xmlns="http://www.w3.org/2000/svg"
+
+                                                    viewBox="0 0 67.557 67.557"
+                                                >
+                                                    <path
+                                                        id="Path_27378"
+                                                        data-name="Path 27378"
+                                                        d="M369.266,311H339.241V280.978h-7.506V311H301.709v7.506h30.025v30.025h7.506V318.51h30.025Z"
+                                                        transform="translate(-301.709 -280.978)"
+                                                    />
+                                                </svg>
+                                            </div>
+                                        </FileUploader>
+
                                     </div>
                                     {/* right */}
                                     <div className='absolute bg-black top-0 right-0 w-2/3 h-1/5 rounded-tr-2xl '>
@@ -371,13 +332,13 @@ function ZTFR() {
                                             <div className='absolute top-0 right-0  pt-[21px] pr-[18px]'>
                                                 <svg
                                                     className={`2xl:w-[12.18px] 2xl:h-[15.5px] xl:w-[8.12px] xl:h-[10.33px] w-[8px] h-[10px] ${currentTheme.fill}`}
-                                                    xmlns="http://www.w3.org/2000/svg" 
-                                                    width="12.176" 
-                                                    height="15.496" 
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="12.176"
+                                                    height="15.496"
                                                     viewBox="0 0 12.176 15.496"
                                                     fill='inherit'>
-                                                    <path id="Path_27800" data-name="Path 27800" d="M70.088-30.72a4.135,4.135,0,0,0-3.874,4.339v1.24H65.107A1.179,1.179,0,0,0,64-23.9v7.438a1.179,1.179,0,0,0,1.107,1.24h9.962a1.179,1.179,0,0,0,1.107-1.24V-23.9a1.179,1.179,0,0,0-1.107-1.24H73.962v-1.24a4.137,4.137,0,0,0-3.677-4.294A.5.5,0,0,0,70.088-30.72Zm0,1.24a2.938,2.938,0,0,1,2.767,3.1v1.24H67.321v-1.24A2.938,2.938,0,0,1,70.088-29.48Z" transform="translate(-64 30.72)" 
-                                                     />
+                                                    <path id="Path_27800" data-name="Path 27800" d="M70.088-30.72a4.135,4.135,0,0,0-3.874,4.339v1.24H65.107A1.179,1.179,0,0,0,64-23.9v7.438a1.179,1.179,0,0,0,1.107,1.24h9.962a1.179,1.179,0,0,0,1.107-1.24V-23.9a1.179,1.179,0,0,0-1.107-1.24H73.962v-1.24a4.137,4.137,0,0,0-3.677-4.294A.5.5,0,0,0,70.088-30.72Zm0,1.24a2.938,2.938,0,0,1,2.767,3.1v1.24H67.321v-1.24A2.938,2.938,0,0,1,70.088-29.48Z" transform="translate(-64 30.72)"
+                                                    />
                                                 </svg>
 
                                             </div>
@@ -391,9 +352,9 @@ function ZTFR() {
                                                     {/* FILE LIST */}
                                                     <div className="h-2/5 w-full">
                                                         {files.length > 0 ? (
-                                                            <div className="text-white row-span-2 flex flex-col justify-between items-start py-2  overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300  h-full ">
+                                                            <div className=" row-span-2 flex flex-col justify-between items-start py-2  overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300  h-full ">
                                                                 {files.map((file, index) => (
-                                                                    <div key={index} className='break-words text-start text-white text-[8px] sm:text-[10px] md:text-[14px] lg:text-[11px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px] tracking-widest'>
+                                                                    <div key={index} className={`break-words text-start ${currentTheme.fgColor} text-[8px] sm:text-[10px] md:text-[14px] lg:text-[11px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px] tracking-widest`}>
                                                                         <ul>
                                                                             <li>
                                                                                 <span className='text-[10px]'>{file.name}</span> <br />
@@ -404,9 +365,7 @@ function ZTFR() {
                                                                 ))}
                                                             </div>
                                                         ) : (
-                                                            <div className={`relative h-full w-full text-white row-span-2 flex flex-col justify-between items-end pt-2
-                                                            ${isDragging ? 'bg-gray-400 opacity-50' : 'bg-transparent'
-                                                                }`}
+                                                            <div className={`relative h-full w-full text-white row-span-2 flex flex-col justify-between items-end pt-2 'bg-transparent'`}
                                                             >
                                                                 <p className={`text-[8px] sm:text-[10px] md:text-[14px] lg:text-[10px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px] tracking-widest ${currentTheme.fgColor}`}>SELECT A FOLDER</p>
                                                                 <p className={`absolute top-[30%] -right-[40%] text-[25px] sm:text-[25px] md:text-[35px] lg:text-[28px] xl:text-[28px] 2xl:text-[32px] 3xl:text-[40px] flex ${currentTheme.fgColor}`}>UP TO &nbsp; <span className='text-black 3xl:pl-1 2xl:pl-[6px] xl:pl-2 lg:pl-1 md:pl-3 sm:pl-2 pl-2 '> 1 TB  </span>
@@ -498,7 +457,7 @@ function ZTFR() {
                                                                         width="6.706"
                                                                         height={25}
                                                                         transform="translate(0 0)"
-                                                                        // fill="#fff"
+                                                                    // fill="#fff"
                                                                     />
                                                                 </clipPath>
                                                             </defs>
