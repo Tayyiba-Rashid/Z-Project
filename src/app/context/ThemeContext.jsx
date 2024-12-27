@@ -62,7 +62,7 @@ export const ThemeProvider = ({ children }) => {
     useEffect(() => {
       const interval = setInterval(() => {
         setCurrentThemeIndex((prev) => (prev + 1) % themes.length);
-      }, 3000);
+      }, 10000);
   
       return () => clearInterval(interval);
     }, []);
