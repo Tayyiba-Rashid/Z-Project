@@ -3,10 +3,10 @@ const { createContext, useContext, useState, useEffect } = require("react");
 
 const themes = [
   {
-      bgColor: 'bg-blue-500',
-      fgColor: 'text-blue-500',
-      border: 'border-blue-500',
-      fill: 'fill-blue-500',
+      bgColor: 'bg-blue-900',
+      fgColor: 'text-blue-900',
+      border: 'border-blue-900',
+      fill: 'fill-blue-900',
       image: ''
   },
   {
@@ -17,10 +17,10 @@ const themes = [
       image: '/bird.png'
   },
   {
-      bgColor: 'bg-green-500',
-      fgColor: 'text-green-500',
-      border: 'border-green-500',
-      fill: 'fill-green-500',
+      bgColor: 'bg-green-900',
+      fgColor: 'text-green-900',
+      border: 'border-green-900',
+      fill: 'fill-green-900',
       image: ''
   },
   {
@@ -31,10 +31,10 @@ const themes = [
       image: '/elephant.png'
   },
   {
-      bgColor: 'bg-yellow-500',
-      fgColor: 'text-yellow-500',
-      border: 'border-yellow-500',
-      fill: 'fill-yellow-500',
+      bgColor: 'bg-yellow-900',
+      fgColor: 'text-yellow-900',
+      border: 'border-yellow-900',
+      fill: 'fill-yellow-900',
       image: ''
   },
   {
