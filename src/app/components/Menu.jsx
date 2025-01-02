@@ -30,11 +30,23 @@ const VerticalImages = [
     "/menu/Group 6425.png",
     "/menu/Group 6424.png",
 ];
+const data = [
+    { id: 1, thumbnail: "/new/cat.png", bg: "/new/catbg.png" },
+    { id: 2, thumbnail: "/new/flowers.png", bg: "/new/flowersbg.png" },
+    { id: 3, thumbnail: "/new/girl.png", bg: "/new/girlbg.png" },
+    { id: 4, thumbnail: "/new/red.png", bg: "/new/redbg.png" },
+    { id: 5, thumbnail: "/new/owl.png", bg: "/new/owlbg.png" },
+    { id: 6, thumbnail: "/new/snow.png", bg: "/new/snowbg.png" },
+    { id: 7, thumbnail: "/new/tiger.png", bg: "/new/tigerbg.png" },
+];
 
 
-function Menu({ handleMenu }) {
-    const [slidesToShow, setSlidesToShow] = useState(0); // Default value
+
+
+function Menu({ handleMenu, handleBackground }) {
+    const [slidesToShow, setSlidesToShow] = useState(0);
     const greenDivRef = useRef(null);
+
 
     const settings = {
         infinite: true,
@@ -88,20 +100,13 @@ function Menu({ handleMenu }) {
         if (greenDivRef.current) {
             const greenDivHeight = greenDivRef.current.offsetHeight;
             const greenDivWidth = greenDivRef.current.offsetWidth;
-            console.log("height", greenDivHeight)
-            console.log("width", greenDivWidth)
             const slidesCount = parseFloat((greenDivHeight / greenDivWidth).toFixed(2) - 0.4);
-
-
-            console.log("sq", slidesCount)
-
             setSlidesToShow(slidesCount > 0 ? slidesCount : 1);
         }
     };
 
     useEffect(() => {
         adjustSlidesToShow();
-        console.log(slidesToShow)
         window.addEventListener("resize", adjustSlidesToShow);
         return () => window.removeEventListener("resize", adjustSlidesToShow);
     }, []);
@@ -487,23 +492,23 @@ function Menu({ handleMenu }) {
                     {/* VERTICAL CAROUSEL */}
                     <div className="  lg:w-[25%] md:w-[15%] sm:w-[18%] w-[25%] overflow-y-hidden ">
                         <div ref={greenDivRef} className="h-full 3xl:w-[91.5%] xl:w-[87%] lg:w-[85%] md:w-full sm:w-[93%] w-[80%] ">
-                            <Slider {...settings}>
-                                {VerticalImages.map((image, index) => (
+                            <Slider {...settings} >
+                                {data.map((image, index) => (
                                     <div
                                         key={index}
-                                        className="flex flex-col justify-center items-center"
+                                        onClick={() => handleBackground(image)}
+                                        className="flex flex-col justify-center items-center border-none outline-none"
 
                                     >
                                         <img
-                                            src={image}
-                                            alt={`Image ${index + 1}`}
-                                            className="rounded-lg hover:scale-105 transition-transform duration-300 w-full pt-[10%] "
+                                            src={image.thumbnail}
+                                            alt={`Image ${image.id}`}
+                                            className="md:rounded-2xl rounded-xl hover:scale-100 scale-95 transition-transform duration-300 w-full  max-w-[200px] mt-[5%] cursor-pointer"
 
                                         />
                                     </div>
                                 ))}
                             </Slider>
-                            {console.log("updated:", slidesToShow)}
                         </div>
                     </div>
                     <div className='relative lg:w-[75%] w-[85%] flex flex-col items-end '>
@@ -744,12 +749,14 @@ function Menu({ handleMenu }) {
                 <div className='flex sm:items-center items-end  xl:h-[25%] lg:h-[20%] md:h-[20%] sm:h-[25%] h-[15%]' >
                     <div className='w-full '>
                         <Slider {...hScrollSettings}>
-                            {Images.map((image, index) => (
-                                <div key={index}>
-                                    <img src={image}
+                            {data.map((image, index) => (
+                                <div
+                                    key={index}
+                                    onClick={() => handleBackground(image)}
+                                    className='border-none outline-none px-[10%] pt-[3%]'>
+                                    <img src={image.thumbnail}
                                         alt={`Image ${index + 1}`}
-                                        className="rounded-lg shadow-lg hover:scale-105 hover:border-none transition-transform duration-300 3xl:px-0 px-[10%] pt-[3%] "
-                                    // 3xl:size-[200px] 2xl:size-[150px] xl:size-[130px] lg:size-[110px] md:size-[100px] sm:size-[100px] size-[50px]
+                                        className="rounded-2xl shadow-lg hover:scale-105 hover:border-none transition-transform duration-300  cursor-pointer "
 
                                     />
                                 </div>

@@ -1,6 +1,6 @@
 "use client"
 import { useClickAway } from '@uidotdev/usehooks';
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useTheme } from '../context/ThemeContext';
 import { FileUploader } from 'react-drag-drop-files'
 import Svg from './Svg';
@@ -10,6 +10,8 @@ function ZTFR() {
     const [isOpen, setIsOpen] = useState(true);
     const [files, setFiles] = useState([]);
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [bgImage, setBgImage] = useState(null)
+    const timerRef = useRef(null); 
 
     const formatFileSize = (size) => {
         if (size < 1024) return `${size} B`;
@@ -45,18 +47,36 @@ function ZTFR() {
         setIsMenuOpen((prev) => (!prev))
         console.log(isMenuOpen)
     }
+
+    
+
+    const handleBackground = (image) => {
+        setBgImage(image.bg);        
+        console.log(timerRef.current)
+        if (timerRef.current) {
+            clearTimeout(timerRef.current);
+        }
+        timerRef.current = setTimeout(() => {
+            setBgImage(null);
+        }, 10000); 
+
+    };
     return (
         <>
             <section className={`relative h-[100vh] ${currentTheme.bgColor} grid grid-rows-9 xl:pt-[40px] md:pt-[34px] sm:pt-[25px] pt-[16px]  transition-all duration-500`}
                 style={{
-                    backgroundImage: currentTheme.image ? `url(${currentTheme.image})` : "none",
+                    backgroundImage: bgImage
+                        ? `url(${bgImage})`
+                        : currentTheme.image
+                            ? `url(${currentTheme.image})`
+                            : "none",
                     backgroundSize: "cover",
                     backgroundPosition: "center"
 
                 }}>
                 {isMenuOpen ? (
                     <section className='absolute z-20 top-0 right-0 h-dvh w-full lg:w-1/2 bg-opacity-90  bg-black xl:pt-[40px] md:pt-[34px] sm:pt-[25px] pt-[16px] overflow-x-hidden xl:pr-[50px] md:pr-[27px] pr-[16px] 2xl:pb-[24px] xl:pb-[15px] md:pb-[20px] sm:pb-[16px] pb-[12px] xl:pl-[25px] md:pl-[13px] pl-[8px]'>
-                        <Menu handleMenu={handleMenu}/>
+                        <Menu handleMenu={handleMenu} handleBackground={handleBackground} />
                     </section>
                 ) : null}
 
@@ -297,8 +317,7 @@ function ZTFR() {
                             {/* ON OPEN */}
                             <div
                                 ref={ref}
-                                className='absolute  border-none 3xl:left-[157px] 2xl:left-[126px] xl:left-[105px] lg:left-[84px] md:left-[102px] sm:left-[70px] left-[15%] 3xl:h-[489px]  2xl:h-[391px]  xl:h-[326px] lg:h-[335px] md:h-[454px] sm:h-[330px] h-[370px] 3xl:w-[314px] 2xl:w-[265px] xl:w-[245px] lg:w-[235px] md:w-[300px] sm:w-[225px] w-[225px]  rounded-2xl bg-transparent z-10'
-                            >
+                                className='absolute  border-none 3xl:left-[157px] 2xl:left-[126px] xl:left-[105px] lg:left-[84px] md:left-[102px] sm:left-[70px] left-[15%] 3xl:h-[489px]  2xl:h-[391px]  xl:h-[326px] lg:h-[335px] md:h-[454px] sm:h-[330px] h-[370px] 3xl:w-[314px] 2xl:w-[265px] xl:w-[245px] lg:w-[235px] md:w-[300px] sm:w-[225px] w-[225px]  rounded-2xl bg-transparent z-10'>
                                 <div className='relative h-full w-full'>
                                     {/* left */}
                                     <div

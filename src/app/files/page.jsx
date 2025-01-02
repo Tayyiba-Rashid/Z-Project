@@ -135,52 +135,23 @@ function VerticalAutoPlay() {
             </div>
 
             {/* Horizontal Auto Play Slider */}
-            <div className="w-full h-[200px] overflow-hidden">
+            <div className="group w-full h-[200px] overflow-hidden bg-blue-500">
                 <Slider {...horizontalSettings}>
-                    {Images.map((image)=> (
+                    {Images.map((image) => (
                         <div>
-                        <img className="bg-gray-300 p-6 text-center rounded-lg shadow-md text-xl font-semibold"
-                        src={image}
-                        />
-                            
-                       
-                    </div>
+                            <img className="bg-gray-300 p-6 text-center rounded-lg shadow-md text-xl font-semibold"
+                                src={image}
+                            />
+
+
+                        </div>
                     ))}
-                    <div>
-                        <h3 className="bg-gray-300 p-6 text-center rounded-lg shadow-md text-xl font-semibold">
-                            A
-                        </h3>
-                    </div>
-                    <div>
-                        <h3 className="bg-gray-300 p-6 text-center rounded-lg shadow-md text-xl font-semibold">
-                            B
-                        </h3>
-                    </div>
-                    <div>
-                        <h3 className="bg-gray-300 p-6 text-center rounded-lg shadow-md text-xl font-semibold">
-                            C
-                        </h3>
-                    </div>
-                    <div>
-                        <h3 className="bg-gray-300 p-6 text-center rounded-lg shadow-md text-xl font-semibold">
-                            D
-                        </h3>
-                    </div>
-                    <div>
-                        <h3 className="bg-gray-300 p-6 text-center rounded-lg shadow-md text-xl font-semibold">
-                            E
-                        </h3>
-                    </div>
-                    <div>
-                        <h3 className="bg-gray-300 p-6 text-center rounded-lg shadow-md text-xl font-semibold">
-                            F
-                        </h3>
-                    </div>
+                 
                 </Slider>
             </div>
 
-            <div className="flex h-[300px] justify-between items-center w-full bg-red-500">
-                {/* <Slider {...hScrollSettings}> */}
+            <div className=" h-[300px] justify-between items-center w-full bg-red-500">
+                <Slider {...hScrollSettings}>
                     {Images.map((image, index) => (
                         <div
                             key={index}
@@ -193,7 +164,7 @@ function VerticalAutoPlay() {
                             />
                         </div>
                     ))}
-                {/* </Slider> */}
+                </Slider>
             </div>
         </div>
     );
@@ -253,9 +224,9 @@ export default VerticalAutoPlay;
 
 
 
-{/* </div> */}
-                {/* CAROUSEL */}
-                {/* <div className="flex-1 flex justify-center items-center overflow-hidden relative ">
+{/* </div> */ }
+{/* CAROUSEL */ }
+{/* <div className="flex-1 flex justify-center items-center overflow-hidden relative ">
 
                     <div
                         className="flex transition-transform duration-300"
