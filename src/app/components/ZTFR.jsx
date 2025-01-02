@@ -4,12 +4,13 @@ import React, { useState } from 'react'
 import { useTheme } from '../context/ThemeContext';
 import { FileUploader } from 'react-drag-drop-files'
 import Svg from './Svg';
-import Menu from './Menu';
+import Menu from '../files/Menu';
+import Sidebar from './Menu';
 function ZTFR() {
     const { currentTheme } = useTheme()
     const [isOpen, setIsOpen] = useState(true);
     const [files, setFiles] = useState([]);
-    const [isMenuOpen, setIsMenuOpen] = useState(true)
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     const formatFileSize = (size) => {
         if (size < 1024) return `${size} B`;
@@ -41,10 +42,10 @@ function ZTFR() {
         setIsOpen((prev) => !prev);
     };
 
-const handleMenu = () => {
-    setIsMenuOpen((prev)=>(!prev))
-    console.log(isMenuOpen)
-}
+    const handleMenu = () => {
+        setIsMenuOpen((prev) => (!prev))
+        console.log(isMenuOpen)
+    }
     return (
         <>
             <section className={`relative h-[100vh] ${currentTheme.bgColor} grid grid-rows-9 xl:pt-[40px] md:pt-[34px] sm:pt-[25px] pt-[16px]  transition-all duration-500`}
@@ -52,15 +53,15 @@ const handleMenu = () => {
                     backgroundImage: currentTheme.image ? `url(${currentTheme.image})` : "none",
                     backgroundSize: "cover",
                     backgroundPosition: "center"
-               
+
                 }}>
-                    {isMenuOpen ? (
-                        <div className='absolute z-20 top-0 right-0 h-dvh w-full lg:w-1/2 bg-opacity-90  bg-black xl:pt-[40px] md:pt-[34px] sm:pt-[25px] pt-[16px] overflow-x-hidden xl:pr-[50px] md:pr-[27px] pr-[16px] 2xl:pb-[24px] xl:pb-[15px] md:pb-[20px] sm:pb-[16px] pb-[12px] xl:pl-[25px] md:pl-[13px] pl-[8px]'> 
-                        <Menu  handleMenu={handleMenu}/>
-                        </div>
-                    ) : null}
-                    
-                    
+                {isMenuOpen ? (
+                    <section className='absolute z-20 top-0 right-0 h-dvh w-full lg:w-1/2 bg-opacity-90  bg-black xl:pt-[40px] md:pt-[34px] sm:pt-[25px] pt-[16px] overflow-x-hidden xl:pr-[50px] md:pr-[27px] pr-[16px] 2xl:pb-[24px] xl:pb-[15px] md:pb-[20px] sm:pb-[16px] pb-[12px] xl:pl-[25px] md:pl-[13px] pl-[8px]'>
+                        <Menu handleMenu={handleMenu}/>
+                    </section>
+                ) : null}
+
+
                 {/* HEADER */}
                 <header className='row-span-1 flex justify-between items-start xl:px-[50px] md:px-[27px] px-[16px]'>
                     {/* header-left */}
@@ -528,8 +529,8 @@ const handleMenu = () => {
                     <div className='h-full sm:col-span-1 flex items-center justify-end'>
                         {/* MENU BUTTON */}
                         <div
-                        onClick={handleMenu}
-                         className='bg-black flex flex-col 3xl:w-[50px] 3xl:h-[203px] 2xl:w-[40px] 2xl:h-[171px] xl:w-[37px] xl:h-[142px] lg:w-[33px] lg:h-[147px] md:w-[40px] md:h-[171px] sm:w-[30px] sm:h-[143px] w-[25px]  h-[140px] rounded-l-2xl cursor-pointer'>
+                            onClick={handleMenu}
+                            className='bg-black flex flex-col 3xl:w-[50px] 3xl:h-[203px] 2xl:w-[40px] 2xl:h-[171px] xl:w-[37px] xl:h-[142px] lg:w-[33px] lg:h-[147px] md:w-[40px] md:h-[171px] sm:w-[30px] sm:h-[143px] w-[25px]  h-[140px] rounded-l-2xl cursor-pointer'>
                             <div className="flex justify-center items-center w-full h-full">
                                 <span className={`rotate-90 ${currentTheme.fill}`}>
                                     <svg
