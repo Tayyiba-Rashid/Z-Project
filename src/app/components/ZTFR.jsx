@@ -4,8 +4,7 @@ import React, { useState } from 'react'
 import { useTheme } from '../context/ThemeContext';
 import { FileUploader } from 'react-drag-drop-files'
 import Svg from './Svg';
-import Menu from '../files/Menu';
-import Sidebar from './Menu';
+import Menu from './Menu';
 function ZTFR() {
     const { currentTheme } = useTheme()
     const [isOpen, setIsOpen] = useState(true);

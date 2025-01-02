@@ -32,10 +32,9 @@ const VerticalImages = [
 ];
 
 
-function Sidebar({ handleMenu }) {
+function Menu({ handleMenu }) {
     const [slidesToShow, setSlidesToShow] = useState(0); // Default value
     const greenDivRef = useRef(null);
-    const greenWidRef = useRef(null);
 
     const settings = {
         infinite: true,
@@ -91,8 +90,6 @@ function Sidebar({ handleMenu }) {
             const greenDivWidth = greenDivRef.current.offsetWidth;
             console.log("height", greenDivHeight)
             console.log("width", greenDivWidth)
-            // Dynamically determine the number of slides to show
-            // const slidesCount = Math.floor(greenDivHeight / greenDivWidth);
             const slidesCount = parseFloat((greenDivHeight / greenDivWidth).toFixed(2) - 0.4);
 
 
@@ -108,7 +105,7 @@ function Sidebar({ handleMenu }) {
         window.addEventListener("resize", adjustSlidesToShow);
         return () => window.removeEventListener("resize", adjustSlidesToShow);
     }, []);
-    
+
 
     const hScrollSettings = {
         infinite: true,
@@ -157,9 +154,9 @@ function Sidebar({ handleMenu }) {
 
                 {/* left */}
                 <div className='w-full h-full flex '>
-                    <span className='h-full flex justify-start items-start cursor-pointer'>
+                    <span className='h-full flex justify-start items-start cursor-pointer hover:fill-[#BE9F56] fill-white '>
                         <svg
-                            className='2xl:w-[20px] xl:w-[18px] lg:w-[15px] md:w-[15px] sm:w-[12px] w-[12px]'
+                            className='2xl:w-[20px] xl:w-[18px] lg:w-[15px] md:w-[15px] sm:w-[12px] w-[12px] '
                             onClick={handleMenu}
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20"
@@ -169,11 +166,11 @@ function Sidebar({ handleMenu }) {
                                 data-name="Path 27323"
                                 d="M169.577,282.55l-1.571-1.571-8.429,8.429-8.429-8.429-1.571,1.571,8.429,8.429-8.429,8.429,1.571,1.571,8.429-8.429,8.429,8.429,1.571-1.571-8.429-8.429Z"
                                 transform="translate(-149.577 -280.979)"
-                                fill="#fff"
+                                fill="inherit"
                             />
                         </svg>
                     </span>
-                    <p className='h-full flex justify-start items-start text-white  2xl:text-[14px] xl:text-[13px] lg:text-[11px] md:text-[12px] sm:text-[10px] text-[8px] tracking-widest 3xl:ml-[40px] 2xl:ml-[30px] xl:ml-[20px] lg:ml-[15px] md:ml-[15px] sm:ml-[8px] ml-[8px] cursor-pointer'>
+                    <p className='h-full flex justify-start items-start text-white  2xl:text-[14px] xl:text-[13px] lg:text-[11px] md:text-[12px] sm:text-[10px] text-[8px] tracking-widest 3xl:ml-[40px] 2xl:ml-[30px] xl:ml-[20px] lg:ml-[15px] md:ml-[15px] sm:ml-[8px] ml-[8px] cursor-pointer '>
                         MENU
                     </p>
                 </div>
@@ -885,4 +882,4 @@ function Sidebar({ handleMenu }) {
     )
 }
 
-export default Sidebar
+export default Menu

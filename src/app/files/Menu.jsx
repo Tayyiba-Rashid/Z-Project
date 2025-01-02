@@ -23,7 +23,7 @@ const VerticalImages = [
     "/menu/Group 6424.png",
 ];
 
-function Menu({ handleMenu }) {
+function Sidebar() {
 
     const settings = {
         infinite: true,
@@ -860,4 +860,4 @@ function Menu({ handleMenu }) {
     )
 }
 
-export default Menu
+export default Sidebar
