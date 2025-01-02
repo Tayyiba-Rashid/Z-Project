@@ -63,7 +63,7 @@ function ZTFR() {
     };
     return (
         <>
-            <section className={`relative h-[100vh] ${currentTheme.bgColor} grid grid-rows-9 xl:pt-[40px] md:pt-[34px] sm:pt-[25px] pt-[16px]  transition-all duration-500`}
+            <section className={`relative h-[100vh] ${bgImage ? "bg-transparent" : currentTheme.bgColor} grid grid-rows-9 xl:pt-[40px] md:pt-[34px] sm:pt-[25px] pt-[16px]  transition-all duration-500`}
                 style={{
                     backgroundImage: bgImage
                         ? `url(${bgImage})`
@@ -299,11 +299,11 @@ function ZTFR() {
                                     className={`relative bg-black flex flex-col 3xl:w-[157px] 3xl:h-[489px] 2xl:w-[126px] 2xl:h-[391px] xl:w-[105px] xl:h-[326px] lg:w-[84px]  lg:h-[335px] md:w-[102px]  md:h-[454px] sm:w-[70px]  sm:h-[330px] h-[370px] w-3/5 rounded-r-2xl cursor-pointer`}>
                                     {/* LOCK SVG */}
                                     <div className={`absolute top-0 right-0  pt-[21px] pr-[18px]`}>
-                                        <Svg className={`w-12 ${currentTheme.fill} `} />
+                                        <Svg className={`w-12 ${bgImage ? "fill-white" : currentTheme.fill} `} />
                                     </div>
                                     {/* INNER TEXT */}
                                     <div className="flex justify-center items-center w-full h-full">
-                                        <p className={`[writing-mode:vertical-rl] rotate-180 3xl:text-[12px] 2xl:text-[9px] xl:text-[8px] lg:text-[7px] md:text-[9px] sm:text-[7px] text-[7px] text-center md:leading-5 lg:tracking-widest tracking-[0.2em] ${currentTheme.fgColor}`}>UPLOAD FILES OR FOLDERS BY DROPPING <br /> THEM ANYWHERE IN THIS WINDOW
+                                        <p className={`[writing-mode:vertical-rl] rotate-180 3xl:text-[12px] 2xl:text-[9px] xl:text-[8px] lg:text-[7px] md:text-[9px] sm:text-[7px] text-[7px] text-center md:leading-5 lg:tracking-widest tracking-[0.2em] ${bgImage ? "text-white" : currentTheme.fgColor}`}>UPLOAD FILES OR FOLDERS BY DROPPING <br /> THEM ANYWHERE IN THIS WINDOW
                                         </p>
                                     </div>
                                     {/* OUTER TEXT */}
@@ -354,14 +354,14 @@ function ZTFR() {
                                         <div className='relative h-full w-full text-white'>
                                             {/* top text */}
                                             <div className='pl-[11px] text-white w-full h-full flex flex-col justify-center items-start'>
-                                                <div className={`text-[8px] sm:text-[10px] md:text-[14px] lg:text-[10px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px] tracking-widest  lg:mt-[19px] sm:mt-[11px] mt-[9px] ${currentTheme.fgColor}`}>UPLOAD FILES</div>
-                                                <div className={`text-[25px] sm:text-[25px] md:text-[33px] lg:text-[28px] xl:text-[28px] 2xl:text-[38px] 3xl:text-[40px] ${currentTheme.fgColor}`}>OR</div>
+                                                <div className={`text-[8px] sm:text-[10px] md:text-[14px] lg:text-[10px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px] tracking-widest  lg:mt-[19px] sm:mt-[11px] mt-[9px] ${bgImage ? "text-white" : currentTheme.fgColor}`}>UPLOAD FILES</div>
+                                                <div className={`text-[25px] sm:text-[25px] md:text-[33px] lg:text-[28px] xl:text-[28px] 2xl:text-[38px] 3xl:text-[40px] ${bgImage ? "text-white" : currentTheme.fgColor}`}>OR</div>
 
                                             </div>
                                             {/* LOCK */}
                                             <div className='absolute top-0 right-0  pt-[21px] pr-[18px]'>
                                                 <svg
-                                                    className={`2xl:w-[12.18px] 2xl:h-[15.5px] xl:w-[8.12px] xl:h-[10.33px] w-[8px] h-[10px] ${currentTheme.fill}`}
+                                                    className={`2xl:w-[12.18px] 2xl:h-[15.5px] xl:w-[8.12px] xl:h-[10.33px] w-[8px] h-[10px] ${bgImage ? "fill-white" : currentTheme.fill}`}
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     width="12.176"
                                                     height="15.496"
@@ -384,7 +384,7 @@ function ZTFR() {
                                                         {files.length > 0 ? (
                                                             <div className=" row-span-2 flex flex-col justify-between items-start py-2  overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300  h-full ">
                                                                 {files.map((file, index) => (
-                                                                    <div key={index} className={`break-words text-start ${currentTheme.fgColor} text-[8px] sm:text-[10px] md:text-[14px] lg:text-[11px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px] tracking-widest`}>
+                                                                    <div key={index} className={`break-words text-start ${bgImage ? "text-white" : currentTheme.fgColor} text-[8px] sm:text-[10px] md:text-[14px] lg:text-[11px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px] tracking-widest`}>
                                                                         <ul>
                                                                             <li>
                                                                                 <span className='text-[10px]'>{file.name}</span> <br />
@@ -397,29 +397,29 @@ function ZTFR() {
                                                         ) : (
                                                             <div className={`relative h-full w-full text-white row-span-2 flex flex-col justify-between items-end pt-2 'bg-transparent'`}
                                                             >
-                                                                <p className={`text-[8px] sm:text-[10px] md:text-[14px] lg:text-[10px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px] tracking-widest ${currentTheme.fgColor}`}>SELECT A FOLDER</p>
-                                                                <p className={`absolute top-[30%] -right-[40%] text-[25px] sm:text-[25px] md:text-[35px] lg:text-[28px] xl:text-[28px] 2xl:text-[32px] 3xl:text-[40px] flex ${currentTheme.fgColor}`}>UP TO &nbsp; <span className='text-black 3xl:pl-1 2xl:pl-[6px] xl:pl-2 lg:pl-1 md:pl-3 sm:pl-2 pl-2 '> 1 TB  </span>
+                                                                <p className={`text-[8px] sm:text-[10px] md:text-[14px] lg:text-[10px] xl:text-[10px] 2xl:text-[13px] 3xl:text-[14px] tracking-widest ${bgImage ? "text-white" : currentTheme.fgColor}`}>SELECT A FOLDER</p>
+                                                                <p className={`absolute top-[30%] -right-[40%] text-[25px] sm:text-[25px] md:text-[35px] lg:text-[28px] xl:text-[28px] 2xl:text-[32px] 3xl:text-[40px] flex ${bgImage ? "text-white" : currentTheme.fgColor}`}>UP TO &nbsp; <span className='text-black 3xl:pl-1 2xl:pl-[6px] xl:pl-2 lg:pl-1 md:pl-3 sm:pl-2 pl-2 '> 1 TB  </span>
                                                                 </p>
-                                                                <p className={`text-[8px] sm:text-[10px] md:text-[14px] lg:text-[11px] xl:text-[12px] 2xl:text-[16px] 3xl:text-[20px] tracking-widest ${currentTheme.fgColor}`}>FREE</p>
+                                                                <p className={`text-[8px] sm:text-[10px] md:text-[14px] lg:text-[11px] xl:text-[12px] 2xl:text-[16px] 3xl:text-[20px] tracking-widest ${bgImage ? "text-white" : currentTheme.fgColor}`}>FREE</p>
                                                             </div>
                                                         )}
                                                     </div>
                                                     {/* FIELD PART */}
                                                     <div className='h-2/5 w-full '>
-                                                        <div className={`relative h-1/2 w-full flex flex-col justify-end ${currentTheme.fgColor}`}>
+                                                        <div className={`relative h-1/2 w-full flex flex-col justify-end ${bgImage ? "text-white" : currentTheme.fgColor}`}>
                                                             <input
                                                                 id="title"
-                                                                className={`peer w-full bg-transparent border-b ${currentTheme.border} focus:border-b-2 focus:border-gray-400 focus:outline-none pt-4 pb-1 placeholder-transparent 3xl:text-[16px] 2xl:text-[14px] xl:text-[11px] lg:text-[10px] sm:text-[14px] text-[12px]`}
+                                                                className={`peer w-full bg-transparent border-b ${bgImage ? "border-white" : currentTheme.border} focus:border-b-1 focus:border-opacity-50 focus:outline-none pt-4 pb-1 placeholder-transparent 3xl:text-[16px] 2xl:text-[14px] xl:text-[11px] lg:text-[10px] sm:text-[14px] text-[12px]`}
                                                                 type="text"
                                                                 placeholder="Title"
                                                             />
                                                             <label
                                                                 htmlFor="title"
                                                                 className={`absolute left-0 top-5 xl:top-3 3xl:top-7 
-                                                              ${currentTheme.fgColor}  transition-all 2xl:peer-placeholder-shown:top-[60%]  
+                                                              ${bgImage ? "text-white" : currentTheme.fgColor}  transition-all 2xl:peer-placeholder-shown:top-[60%]  
                                                                 peer-placeholder-shown:top-[60%]  
-                                                              peer-placeholder-shown:${currentTheme.fgColor}  
-                                                              peer-focus:text-gray-400
+                                                              peer-placeholder-shown:${bgImage ? "text-white" : currentTheme.fgColor}  
+                                                              peer-focus:text-opacity-50
                                                                 peer-placeholder-shown:text-[9px]
                                                                 sm:peer-placeholder-shown:text-[9px]
                                                                 md:peer-placeholder-shown:text-[9px]
@@ -444,17 +444,17 @@ function ZTFR() {
                                                         </div>
 
 
-                                                        <div className={`relative ${currentTheme.fgColor} flex flex-col justify-end  h-1/2`}>
+                                                        <div className={`relative ${bgImage ? "text-white" : currentTheme.fgColor} flex flex-col justify-end  h-1/2`}>
                                                             <input
                                                                 id="title"
                                                                 className={`peer 3xl:text-[16px] 2xl:text-[14px] xl:text-[11px] sm:text-[14px] lg:text-[10px] text-[12px] bg-transparent border-b 
-                                                                ${currentTheme.border}  focus:border-b-2 focus:border-gray-400 focus:outline-none w-full pt-4 pb-1 placeholder-transparent`}
+                                                                ${bgImage ? "border-white" : currentTheme.border}  focus:border-b-1 focus:border-opacity-50 focus:outline-none w-full pt-4 pb-1 placeholder-transparent`}
                                                                 type="text"
                                                             />
                                                             <label
                                                                 htmlFor="title"
                                                                 className="absolute left-0 top-4 2xl:top-3 3xl:top-[22px] transition-all
-                                                              peer-focus:text-gray-400
+                                                              peer-focus:text-opacity-50
                                                                 text-[9px]
                                                                 sm:text-[9px]
                                                                 md:text-[9px] 
@@ -472,7 +472,7 @@ function ZTFR() {
                                                     </div>
                                                     <div className='text-white h-1/5 flex justify-end items-center'>
                                                         <svg
-                                                            className={`size-4 md:size-4 xl:size-5 2xl:size-[6.71] ${currentTheme.fill}`}
+                                                            className={`size-4 md:size-4 xl:size-5 2xl:size-[6.71] ${bgImage ? "fill-white" : currentTheme.fill}`}
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlnsXlink="http://www.w3.org/1999/xlink"
                                                             width="6.706"
@@ -550,7 +550,7 @@ function ZTFR() {
                             onClick={handleMenu}
                             className='bg-black flex flex-col 3xl:w-[50px] 3xl:h-[203px] 2xl:w-[40px] 2xl:h-[171px] xl:w-[37px] xl:h-[142px] lg:w-[33px] lg:h-[147px] md:w-[40px] md:h-[171px] sm:w-[30px] sm:h-[143px] w-[25px]  h-[140px] rounded-l-2xl cursor-pointer'>
                             <div className="flex justify-center items-center w-full h-full">
-                                <span className={`rotate-90 ${currentTheme.fill}`}>
+                                <span className={`rotate-90 ${bgImage ? "fill-white" : currentTheme.fill}`}>
                                     <svg
                                         className='3xl:w-[90px] 3xl:h-[22px] 2xl:w-[72px] 2xl:h-[18px] xl:w-[60px] xl:h-[15px] lg:w-[62px] lg:h-[13px]  md:w-[62px] md:h-[13px] sm:w-[70px] sm:h-[12px] w-[70px] h-[12px]'
                                         xmlns="http://www.w3.org/2000/svg"
